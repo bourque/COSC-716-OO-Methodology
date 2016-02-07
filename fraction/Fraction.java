@@ -5,6 +5,8 @@ class Fraction {
 
     /**
      * Constructor method
+     * @param numerator - the numerator of the fraction
+     * @param denominator - the denominator of the fraction
      */
     public Fraction(int numerator, int denominator){
         this.numerator = numerator;
@@ -14,6 +16,7 @@ class Fraction {
 
     /**
      * Copy constructor method
+     * @param frac - the fraction
      */
     public Fraction(Fraction frac){
         this.numerator = frac.numerator;
@@ -41,8 +44,17 @@ class Fraction {
     }
 
 
-    public void add(){
-
+    /**
+     * Add the given fraction to this fraction
+     * @param frac - the fraction to add
+     * @return newFraction - A new fraction that is the sum of this fraction
+     *                       and the given fraction
+     */
+    public Fraction add(Fraction frac){
+        int newNumerator = this.numerator * frac.denominator + frac.numerator * this.denominator;
+        int newDenominator = this.denominator * frac.denominator;
+        Fraction newFraction = new Fraction(newNumerator, newDenominator);
+        return reduce(newFraction);
     }
 
 
@@ -66,8 +78,33 @@ class Fraction {
     }
 
 
-    public void reduce(){
+    /**
+     * Reduce the given fraction to it's simplest form
+     * @param frac - the fraction to reduce
+     * @return newFraction - A new fraction that is reduced to the given
+     *                       fraction's simplest form
+     */
+    public Fraction reduce(Fraction frac){
 
+        // Find the greatest common denominator
+        int n = frac.numerator;
+        int d = frac.denominator;
+        while (d != 0) {
+            if (n > d) {
+                n -= d;
+            } else {
+                d -= n;
+            }
+        }
+        int gcd = n;
+
+        // Reduce the fraction by the greatest common demoniator
+        frac.numerator /= gcd;
+        frac.denominator /= gcd;
+
+        // Construct a new fraction and return it
+        Fraction newFraction = new Fraction(frac.numerator, frac.denominator);
+        return newFraction;
     }
 
 

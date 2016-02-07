@@ -5,10 +5,11 @@ class Driver {
      */
     public static void main(String[] args) {
 
-        Fraction fraction = new Fraction(2,4);
-        Fraction copyFraction = new Fraction(fraction);
-        System.out.println(fraction);
-        System.out.println(copyFraction);
+        Fraction fraction1 = new Fraction(1,3);
+        Fraction fraction2 = new Fraction(2,3);
+        System.out.println(fraction1);
+        System.out.println(fraction2);
+        System.out.println(fraction1.add(fraction2));
     }
 
 }
