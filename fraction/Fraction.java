@@ -24,23 +24,12 @@ class Fraction {
     }
 
 
-    public int getDenominator(){
-        return this.denominator;
-    }
-
-
-    public void setDenominator(int denominator){
-        this.denominator = denominator;
-    }
-
-
-    public int getNumerator(){
-        return this.numerator;
-    }
-
-
-    public void setNumerator(int numerator){
-        this.numerator = numerator;
+    /**
+     * Override the toString method
+     */
+    @Override
+    public String toString() {
+        return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
     }
 
 
@@ -58,18 +47,14 @@ class Fraction {
     }
 
 
-    public void subtract(){
-
-    }
-
-
-    public void multiply(){
-
-    }
-
-
-    public void divide(){
-
+    /**
+     * Divide the given fraction to this fraction
+     * @param frac - the fraction to divide
+     * @return newFraction - A new fraction that is the quotient of this
+     *                       fraction and the given fraction
+     */
+    public Fraction divide(Fraction frac){
+        return frac;
     }
 
 
@@ -91,6 +76,35 @@ class Fraction {
         } else {
             return false;
         }
+    }
+
+
+    /**
+     * Return the doniminator from this fraction
+     * @return this.denominator - the denominator from this fraction
+     */
+    public int getDenominator(){
+        return this.denominator;
+    }
+
+
+    /**
+     * Return the numerator from this fraction
+     * @return this.numerator - the numerator from this fraction
+     */
+    public int getNumerator(){
+        return this.numerator;
+    }
+
+
+    /**
+     * Multiply the given fraction to this fraction
+     * @param frac - the fraction to multiply
+     * @return newFraction - A new fraction that is the product of this
+     *                       fraction and the given fraction
+     */
+    public Fraction multiply(Fraction frac){
+        return frac;
     }
 
 
@@ -125,10 +139,30 @@ class Fraction {
 
 
     /**
-     * Override the toString method
+     * Set the denominator for this fraction
+     * @param denominator - The denominator to set
      */
-    @Override
-    public String toString() {
-        return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
+    public void setDenominator(int denominator){
+        this.denominator = denominator;
+    }
+
+
+    /**
+     * Set the numerator for this fraction
+     * @param numerator - The numerator to set
+     */
+    public void setNumerator(int numerator){
+        this.numerator = numerator;
+    }
+
+
+    /**
+     * Subtract the given fraction from this fraction
+     * @param frac - the fraction to subtract
+     * @return newFraction - A new fraction that is the difference of this
+     *                       fraction and the given fraction
+     */
+    public Fraction subtract(Fraction frac){
+        return frac;
     }
 }
