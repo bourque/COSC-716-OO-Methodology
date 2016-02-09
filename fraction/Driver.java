@@ -14,6 +14,9 @@ class Driver {
         System.out.println(fraction1.subtract(fraction2));
         System.out.println(fraction1.multiply(fraction2));
         System.out.println(fraction1.divide(fraction2));
+
+        UnitFraction fraction3 = new UnitFraction(1, 4);
+        System.out.println(fraction3);
     }
 
 }
