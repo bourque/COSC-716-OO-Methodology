@@ -1,7 +1,7 @@
 class Fraction {
 
-    private int numerator;
-    private int denominator;
+    public int numerator;
+    public int denominator;
 
     /**
      * Constructor method

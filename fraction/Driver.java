@@ -17,6 +17,7 @@ class Driver {
 
         UnitFraction fraction3 = new UnitFraction(1, 4);
         System.out.println(fraction3);
+        System.out.println(fraction3.add(fraction1));
     }
 
 }
