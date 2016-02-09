@@ -9,6 +9,7 @@ class Fraction {
      * @param denominator - the denominator of the fraction
      */
     public Fraction(int numerator, int denominator){
+
         this.numerator = numerator;
         this.denominator = denominator;
     }
@@ -19,6 +20,7 @@ class Fraction {
      * @param frac - the fraction
      */
     public Fraction(Fraction frac){
+
         this.numerator = frac.numerator;
         this.denominator = frac.denominator;
     }
@@ -29,7 +31,21 @@ class Fraction {
      */
     @Override
     public String toString() {
-        return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
+
+        // If the numerator is 0, then just return 0
+        if (this.numerator == 0) {
+            return Integer.toString(0);
+        }
+
+        // If the denominator is 0, then return "inf"
+        else if (this.denominator == 0) {
+            return "inf";
+        }
+
+        // Otherwise, return a string of the fraction
+        else {
+            return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
+        }
     }
 
 
@@ -40,9 +56,11 @@ class Fraction {
      *                       and the given fraction
      */
     public Fraction add(Fraction frac){
+
         int newNumerator = this.numerator * frac.denominator + frac.numerator * this.denominator;
         int newDenominator = this.denominator * frac.denominator;
         Fraction newFraction = new Fraction(newNumerator, newDenominator);
+
         return reduce(newFraction);
     }
 
@@ -54,7 +72,14 @@ class Fraction {
      *                       fraction and the given fraction
      */
     public Fraction divide(Fraction frac){
-        return frac;
+
+        // Multiply by the reciprical of the given fraction
+        int n = this.numerator * frac.denominator;
+        int d = this.denominator * frac.numerator;
+
+        // Construct a new fraction and return it
+        Fraction newFraction = new Fraction(n, d);
+        return reduce(newFraction);
     }
 
 
@@ -104,7 +129,14 @@ class Fraction {
      *                       fraction and the given fraction
      */
     public Fraction multiply(Fraction frac){
-        return frac;
+
+        // Multipy the numerators and denominators
+        int n = this.numerator * frac.numerator;
+        int d = this.denominator * frac.denominator;
+
+        // Construct a new fraction and return it
+        Fraction newFraction = new Fraction(n, d);
+        return reduce(newFraction);
     }
 
 
@@ -119,14 +151,12 @@ class Fraction {
         // Find the greatest common denominator
         int n = frac.numerator;
         int d = frac.denominator;
-        while (d != 0) {
-            if (n > d) {
-                n -= d;
-            } else {
-                d -= n;
-            }
+        while(n != 0 && d != 0) {
+            int temp = d;
+            d = n % d;
+            n = temp;
         }
-        int gcd = n;
+        int gcd = n + d;
 
         // Reduce the fraction by the greatest common demoniator
         frac.numerator /= gcd;
@@ -163,6 +193,11 @@ class Fraction {
      *                       fraction and the given fraction
      */
     public Fraction subtract(Fraction frac){
-        return frac;
+
+        int newNumerator = this.numerator * frac.denominator - frac.numerator * this.denominator;
+        int newDenominator = this.denominator * frac.denominator;
+        Fraction newFraction = new Fraction(newNumerator, newDenominator);
+
+        return reduce(newFraction);
     }
 }
