@@ -28,7 +28,6 @@ class UnitFraction extends Fraction{
     /**
      * Override the toString method
      */
-    @Override
     public String toString() {
 
         // If the denominator is 0, then return "inf"
@@ -49,7 +48,6 @@ class UnitFraction extends Fraction{
      * @return newFraction - A new fraction that is the sum of this fraction
      *                       and the given fraction
      */
-    @Override
     public Fraction add(Fraction frac){
 
         Integer newNumerator = frac.denominator + frac.numerator * this.denominator;
@@ -66,8 +64,12 @@ class UnitFraction extends Fraction{
      * @return newFraction - A new fraction that is the quotient of this
      *                       fraction and the given fraction
      */
-    @Override
-    public Fraction divide(Fraction frac){
+    public Fraction divide(Fraction frac) throws ArithmeticException {
+
+        // If the numerator of the given fraction is 0, throw an exception
+        if (frac.numerator == 0) {
+            throw new ArithmeticException("Divide by zero.");
+        }
 
         // Multiply by the reciprical of the given fraction
         Integer n = frac.denominator;
@@ -84,14 +86,13 @@ class UnitFraction extends Fraction{
      * @param frac - the fraction to reduce
      * @return true if fraction is equal, false if it is not.
      */
-    @Override
     public Boolean equals(Fraction frac){
 
         // First make sure the given fraction is in simplest form
         Fraction fracSimple = reduce(frac);
 
         // Check to see if they are equal
-        if (this.numerator == fracSimple.numerator && this.denominator == fracSimple.denominator) {
+        if (this.numerator.equals(fracSimple.numerator) && this.denominator.equals(fracSimple.denominator)) {
             return true;
         } else {
             return false;
@@ -123,7 +124,6 @@ class UnitFraction extends Fraction{
      * @return newFraction - A new fraction that is the product of this
      *                       fraction and the given fraction
      */
-    @Override
     public Fraction multiply(Fraction frac){
 
         // Multipy the numerators and denominators
@@ -171,7 +171,6 @@ class UnitFraction extends Fraction{
      * @return newFraction - A new fraction that is the difference of this
      *                       fraction and the given fraction
      */
-    @Override
     public Fraction subtract(Fraction frac){
 
         Integer newNumerator = frac.denominator - frac.numerator * this.denominator;
