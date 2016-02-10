@@ -32,12 +32,17 @@ class Fraction {
     public String toString() {
 
         // If the numerator is 0, then just return 0
-        if (this.numerator == 0) {
+        if (this.numerator.equals(0)) {
             return Integer.toString(0);
         }
 
+        // If both the numerator and denomintaor are 1, then just return 1
+        else if (this.numerator.equals(1) && this.denominator.equals(1)) {
+            return Integer.toString(1);
+        }
+
         // If the denominator is 0, then return "inf"
-        else if (this.denominator == 0) {
+        else if (this.denominator.equals(0)) {
             return "inf";
         }
 
@@ -75,7 +80,7 @@ class Fraction {
     public Fraction divide(Fraction frac) throws ArithmeticException{
 
         // If the numerator of the given fraction is 0, throw an exception
-        if (frac.numerator == 0) {
+        if (frac.numerator.equals(0)) {
             throw new ArithmeticException("Divide by zero.");
         }
 
