@@ -2,10 +2,17 @@ class UnitFraction extends Fraction{
 
     /**
      * Constructor method
+     * @param numerator - the numerator of the fraction
      * @param denominator - the denominator of the fraction
+     * @throws IllegalArgumentException if the numerator is not 1 or -1
      */
-    public UnitFraction(int numerator, int denominator){
+    public UnitFraction(Integer numerator, Integer denominator){
         super(numerator, denominator);
+
+        // Ensure that the numerator is 1
+        if (this.numerator != 1) {
+            throw new IllegalArgumentException("Numerator must be 1 for a unit fraction");
+        }
     }
 
 
@@ -45,8 +52,8 @@ class UnitFraction extends Fraction{
     @Override
     public Fraction add(Fraction frac){
 
-        int newNumerator = frac.denominator + frac.numerator * this.denominator;
-        int newDenominator = this.denominator * frac.denominator;
+        Integer newNumerator = frac.denominator + frac.numerator * this.denominator;
+        Integer newDenominator = this.denominator * frac.denominator;
         Fraction newFraction = new Fraction(newNumerator, newDenominator);
 
         return reduce(newFraction);
@@ -63,8 +70,8 @@ class UnitFraction extends Fraction{
     public Fraction divide(Fraction frac){
 
         // Multiply by the reciprical of the given fraction
-        int n = frac.denominator;
-        int d = this.denominator * frac.numerator;
+        Integer n = frac.denominator;
+        Integer d = this.denominator * frac.numerator;
 
         // Construct a new fraction and return it
         Fraction newFraction = new Fraction(n, d);
@@ -96,7 +103,7 @@ class UnitFraction extends Fraction{
      * Return the doniminator from this fraction
      * @return this.denominator - the denominator from this fraction
      */
-    public int getDenominator(){
+    public Integer getDenominator(){
         return super.getDenominator();
     }
 
@@ -105,7 +112,7 @@ class UnitFraction extends Fraction{
      * Return the numerator from this fraction
      * @return this.numerator - the numerator from this fraction
      */
-    public int getNumerator(){
+    public Integer getNumerator(){
         return super.getNumerator();
     }
 
@@ -120,8 +127,8 @@ class UnitFraction extends Fraction{
     public Fraction multiply(Fraction frac){
 
         // Multipy the numerators and denominators
-        int n = frac.numerator;
-        int d = this.denominator * frac.denominator;
+        Integer n = frac.numerator;
+        Integer d = this.denominator * frac.denominator;
 
         // Construct a new fraction and return it
         Fraction newFraction = new Fraction(n, d);
@@ -144,7 +151,7 @@ class UnitFraction extends Fraction{
      * Set the denominator for this fraction
      * @param denominator - The denominator to set
      */
-    public void setDenominator(int denominator){
+    public void setDenominator(Integer denominator){
         super.setDenominator(denominator);
     }
 
@@ -153,7 +160,7 @@ class UnitFraction extends Fraction{
      * Set the numerator for this fraction
      * @param numerator - The numerator to set
      */
-    public void setNumerator(int numerator){
+    public void setNumerator(Integer numerator){
         super.setNumerator(numerator);
     }
 
@@ -167,8 +174,8 @@ class UnitFraction extends Fraction{
     @Override
     public Fraction subtract(Fraction frac){
 
-        int newNumerator = frac.denominator - frac.numerator * this.denominator;
-        int newDenominator = this.denominator * frac.denominator;
+        Integer newNumerator = frac.denominator - frac.numerator * this.denominator;
+        Integer newDenominator = this.denominator * frac.denominator;
         Fraction newFraction = new Fraction(newNumerator, newDenominator);
 
         return reduce(newFraction);
