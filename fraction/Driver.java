@@ -97,7 +97,8 @@ class Driver {
         System.out.println("\nTesting excpetion for divide by zero");
         try {
             Fraction fraction9 = new Fraction(0,1);
-            System.out.println(fraction1.divide(fraction9));
+            System.out.println("\t" + fraction1 + " / " + fraction9 + " = ");
+            System.out.print(fraction1.divide(fraction9));
         } catch (ArithmeticException e) {
             System.out.println(e);
         }
