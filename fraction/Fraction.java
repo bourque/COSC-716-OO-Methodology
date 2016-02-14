@@ -10,8 +10,8 @@ class Fraction {
      */
     public Fraction(Integer numerator, Integer denominator){
 
-        this.numerator = numerator;
-        this.denominator = denominator;
+        setNumerator(numerator);
+        setDenominator(denominator);
     }
 
 
@@ -21,8 +21,8 @@ class Fraction {
      */
     public Fraction(Fraction frac){
 
-        this.numerator = frac.numerator;
-        this.denominator = frac.denominator;
+        setNumerator(frac.numerator);
+        setDenominator(frac.denominator);
     }
 
 
@@ -30,26 +30,7 @@ class Fraction {
      * Override the toString method
      */
     public String toString() {
-
-        // If the numerator is 0, then just return 0
-        if (this.numerator.equals(0)) {
-            return Integer.toString(0);
-        }
-
-        // If both the numerator and denomintaor are 1, then just return 1
-        else if (this.numerator.equals(1) && this.denominator.equals(1)) {
-            return Integer.toString(1);
-        }
-
-        // If the denominator is 0, then return "inf"
-        else if (this.denominator.equals(0)) {
-            return "inf";
-        }
-
-        // Otherwise, return a string of the fraction
-        else {
-            return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
-        }
+        return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
     }
 
 
@@ -183,7 +164,13 @@ class Fraction {
      * Set the denominator for this fraction
      * @param denominator - The denominator to set
      */
-    public void setDenominator(Integer denominator){
+    public void setDenominator(Integer denominator) throws ArithmeticException{
+
+        // If the denominator of the given fraction is 0, throw an exception
+        if (denominator.equals(0)) {
+            throw new ArithmeticException("Divide by zero.");
+        }
+
         this.denominator = denominator;
     }
 

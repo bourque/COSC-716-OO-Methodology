@@ -1,3 +1,9 @@
+/*
+Matthew Bourque
+2/16/2016
+Homework Assignment 1
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,26 +14,22 @@ class Driver {
      */
     public static void main(String[] args) {
 
-        // Build a set of fractions to test with corner cases
+        // Build a set of fractions to test with some corner cases
         Fraction fraction1 = new Fraction(2,3); // A normal fraction
-        //Fraction fraction2 = new Fraction(0,3); // A fraction that equates to 0
-        Fraction fraction3 = new Fraction(9,9); // A fraction that equates to 1
-        UnitFraction fraction4 = new UnitFraction(1,4); // A normal unit fraction
-        Fraction fraction5 = new Fraction(-4,5); // A negative fraction via numerator
-        Fraction fraction6 = new Fraction(5,-7); // A negative fraction via denominator
-        Fraction fraction7 = new Fraction(13,5); // A fraction greater than 1
-        //Fraction fraction8 = new Fraction(11,0); // A fraction with a denominator of 0
+        Fraction fraction2 = new Fraction(2,2); // A fraction that equates to 1
+        Fraction fraction3 = new Fraction(-2,3); // A negative fraction via numerator
+        Fraction fraction4 = new Fraction(3,-4); // A negative fraction via denominator
+        Fraction fraction5 = new Fraction(4,3); // A fraction greater than 1
+        UnitFraction fraction6 = new UnitFraction(1,4); // A normal unit fraction
 
-        // Put fraction objects in an iterable list
+        // Put fraction objects into an iterable list
         List<Fraction> fractionList = new ArrayList<Fraction>();
         fractionList.add(fraction1);
-        //fractionList.add(fraction2);
+        fractionList.add(fraction2);
         fractionList.add(fraction3);
         fractionList.add(fraction4);
         fractionList.add(fraction5);
         fractionList.add(fraction6);
-        fractionList.add(fraction7);
-        //fractionList.add(fraction8);
 
         // Test equals method
         System.out.println("\nTesting equals method\n");
@@ -72,6 +74,32 @@ class Driver {
                 System.out.print("\t" + fractionList.get(i) + " / " + fractionList.get(j) + " = ");
                 System.out.print(fractionList.get(i).divide(fractionList.get(j)) + "\n");
             }
+        }
+
+        // Test the exceptions
+        // Try to make a fraction with denominator = 0
+        System.out.println("\nTesting exception for denominator = 0");
+        try {
+            Fraction fraction7 = new Fraction(1,0);
+        } catch (ArithmeticException e) {
+            System.out.println(e);
+        }
+
+        // Try to make a unit fraction with numerator != 1
+        System.out.println("\nTesting exception for unit fraction with numerator != 1");
+        try {
+            UnitFraction fraction8 = new UnitFraction(2,3);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
+
+        // Try to divide by a faction that equates to 0
+        System.out.println("\nTesting excpetion for divide by zero");
+        try {
+            Fraction fraction9 = new Fraction(0,1);
+            System.out.println(fraction1.divide(fraction9));
+        } catch (ArithmeticException e) {
+            System.out.println(e);
         }
     }
 }

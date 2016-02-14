@@ -29,21 +29,7 @@ class UnitFraction extends Fraction{
      * Override the toString method
      */
     public String toString() {
-
-        // If both the numerator and denomintaor are 1, then just return 1
-        if (this.numerator.equals(1) && this.denominator.equals(1)) {
-            return Integer.toString(1);
-        }
-
-        // If the denominator is 0, then return "inf"
-        else if (this.denominator.equals(0)) {
-            return "inf";
-        }
-
-        // Otherwise, return a string of the fraction
-        else {
-            return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
-        }
+        return super.toString();
     }
 
 
@@ -93,7 +79,8 @@ class UnitFraction extends Fraction{
      */
     public Boolean equals(Fraction frac){
 
-        // First make sure the given fraction is in simplest form
+        // We can assume the unit fraction is already in simplest form
+        // Make sure the given fraction is in simplest form
         Fraction fracSimple = reduce(frac);
 
         // Check to see if they are equal
