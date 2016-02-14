@@ -30,7 +30,24 @@ class Fraction {
      * Override the toString method
      */
     public String toString() {
-        return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
+
+        // If the numerator is 0, then just return 0
+        if (this.numerator.equals(0)) {
+            return Integer.toString(0);
+        }
+
+        // If the denominator is negative and the numerator is positive,
+        // switch the signs for aesthetic reasons
+        if (this.numerator > 0 && this.denominator < 0){
+            return "-" + Integer.toString(this.numerator) + "/" + Integer.toString(Math.abs(this.denominator));
+
+        }
+
+        // Otherwise, return a string of the fraction
+        else {
+            return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
+        }
+
     }
 
 
