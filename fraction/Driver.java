@@ -102,3 +102,10 @@ class Driver {
         }
     }
 }
+
+// Question: What changes would need to be made to make the Fraction class immutable.
+// An immutable object cannot be changed once it is created.  To accomplish this with the Fraction class, one would have to:
+// 1. Declare the fraction class to be 'final' (i.e. final public class Fraction{}); the 'final' keyword ensures that the reference to the fraction object does not change.
+// 2. Declare the numerator and denominator fields to be 'private' and 'final' (e.g. final private Integer numerator)
+// 3. Remove the setter methods (i.e. setNumerator, setDenominator) so that a user is unable to change the numerator and denominator fields
+// It is also important to note that if the Fraction class is made 'final', it cannot be subclassed, and thus the UnitFraction class would not be able to inherit from Fraction.
