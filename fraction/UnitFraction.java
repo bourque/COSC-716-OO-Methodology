@@ -26,14 +26,6 @@ class UnitFraction extends Fraction{
 
 
     /**
-     * Override the toString method
-     */
-    public String toString() {
-        return super.toString();
-    }
-
-
-    /**
      * Add the given fraction to this fraction
      * @param frac - the fraction to add
      * @return newFraction - A new fraction that is the sum of this fraction
@@ -93,24 +85,6 @@ class UnitFraction extends Fraction{
 
 
     /**
-     * Return the doniminator from this fraction
-     * @return this.denominator - the denominator from this fraction
-     */
-    public Integer getDenominator(){
-        return super.getDenominator();
-    }
-
-
-    /**
-     * Return the numerator from this fraction
-     * @return this.numerator - the numerator from this fraction
-     */
-    public Integer getNumerator(){
-        return super.getNumerator();
-    }
-
-
-    /**
      * Multiply the given fraction to this fraction
      * @param frac - the fraction to multiply
      * @return newFraction - A new fraction that is the product of this
@@ -125,35 +99,6 @@ class UnitFraction extends Fraction{
         // Construct a new fraction and return it
         Fraction newFraction = new Fraction(n, d);
         return reduce(newFraction);
-    }
-
-
-    /**
-     * Reduce the given fraction to it's simplest form
-     * @param frac - the fraction to reduce
-     * @return newFraction - A new fraction that is reduced to the given
-     *                       fraction's simplest form
-     */
-    public Fraction reduce(Fraction frac){
-        return super.reduce(frac);
-    }
-
-
-    /**
-     * Set the denominator for this fraction
-     * @param denominator - The denominator to set
-     */
-    public void setDenominator(Integer denominator){
-        super.setDenominator(denominator);
-    }
-
-
-    /**
-     * Set the numerator for this fraction
-     * @param numerator - The numerator to set
-     */
-    public void setNumerator(Integer numerator){
-        super.setNumerator(numerator);
     }
 
 
