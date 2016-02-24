@@ -1,0 +1,1 @@
+public HeartHealthyIterator implements MenuIterator {}

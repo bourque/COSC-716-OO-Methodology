@@ -1,0 +1,1 @@
+public ItemIterator implements MenuIterator {}
