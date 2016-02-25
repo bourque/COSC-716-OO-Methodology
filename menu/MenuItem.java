@@ -1,4 +1,4 @@
-public class MenuItem {
+public class MenuItem{
 
     public String itemName;
     public int category;
@@ -13,15 +13,16 @@ public class MenuItem {
         this.price = price;
     }
 
+    public String toString(){
+
+        return this.itemName + ":\t\t" + this.category + "\t" + this.heartHealthy + "\t" + this.price;
+    }
+
     public float getPrice(){
         return this.price;
     }
 
     public int getCategory(){
         return this.category;
-    }
-
-    public void toString(){
-
     }
 }
