@@ -25,4 +25,12 @@ public class MenuItem{
     public int getCategory(){
         return this.category;
     }
+
+    public String getName(){
+        return this.itemName;
+    }
+
+    public boolean getHeartHealthy(){
+        return this.heartHealthy;
+    }
 }
