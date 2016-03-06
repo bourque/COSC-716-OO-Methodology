@@ -80,6 +80,7 @@ public class Menu{
 
         public ItemIterator(int category){
             this.category = category;
+            this.index = getStartingIndex();
         }
 
         public void next(){
@@ -112,6 +113,15 @@ public class Menu{
         public MenuItem getItem(){
             return menu.get(this.index);
         }
+
+        private int getStartingIndex(){
+
+            int startingIndex = 0;
+            while (menu.get(startingIndex).category != this.category && startingIndex < this.menuSize) {
+                startingIndex += 1;
+            }
+            return startingIndex;
+        }
     }
 
 
@@ -123,24 +133,31 @@ public class Menu{
 
         public void next(){
 
-            this.tempIndex = this.index;
-            while (menu.get(this.tempIndex).heartHealthy == false) {
+            this.index += 1;
+            int tempIndex = this.index;
+            while (menu.get(tempIndex).heartHealthy != true && this.index < this.menuSize) {
                 this.index += 1;
-                this.tempIndex += 1;
+                tempIndex += 1;
             }
         }
 
         public boolean hasNext(){
-            this.tempIndex = this.index;
-            while (this.tempIndex <= menuSize) {
-                if (menu.get(this.tempIndex).heartHealthy == true) {
-                    return true;
-                } else {
-                    this.tempIndex += 1;
+
+            if (this.index >= this.menuSize){
+                return false;
+            } else{
+                int tempIndex = this.index;
+                while (tempIndex <= menuSize) {
+                    if (menu.get(tempIndex).heartHealthy != true) {
+                        tempIndex += 1;
+                    } else {
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
         }
+
 
         public MenuItem getItem(){
             return menu.get(this.index);
