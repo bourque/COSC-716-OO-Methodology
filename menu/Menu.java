@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Menu{
 
-    public static final int APPETIZERS = 1;
+    public static final int APPETIZER = 1;
     public static final int MAIN_DISH = 2;
     public static final int DESSERT = 3;
     public ArrayList<MenuItem> menu = new ArrayList();

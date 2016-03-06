@@ -23,45 +23,58 @@ class Driver{
     menu.append(item6);
     menu.append(item7);
 
-    // Iterate over all items on the menu
+    // Display all menu items
     MenuIterator itr1 = menu.getAllItemsIterator();
-    System.out.println("ALL MENU ITEMS");
+    System.out.println("\nAll menu items");
     while (itr1.hasNext()) {
         MenuItem item = itr1.getItem();
-        System.out.println(item.getName() + " $" + item.getPrice());
+        System.out.println("\t" + item.getName() + " $" + item.getPrice());
         itr1.next();
     }
-    System.out.println();
 
-    // Iterate over a specified item type
-    MenuIterator itr2 = menu.getItemIterator(menu.MAIN_DISH);
-    System.out.println("MAIN DISHES");
+    // Display all appetizers
+    MenuIterator itr2 = menu.getItemIterator(menu.APPETIZER);
+    System.out.println("\nAll appetizers");
     while (itr2.hasNext()) {
         MenuItem item = itr2.getItem();
-        System.out.println(item.getName() + " $" + item.getPrice());
+        System.out.println("\t" + item.getName() + " $" + item.getPrice());
         itr2.next();
     }
-    System.out.println();
 
-    // Iterate over a specified item type
-    MenuIterator itr3 = menu.getHeartHealthyIterator();
-    System.out.println("ALL HEART HEALTHY MENU ITEMS");
+    // Display all main dishes
+    MenuIterator itr3 = menu.getItemIterator(menu.MAIN_DISH);
+    System.out.println("\nAll main dishes");
     while (itr3.hasNext()) {
         MenuItem item = itr3.getItem();
-        System.out.println(item.getName() + " $" + item.getPrice());
+        System.out.println("\t" + item.getName() + " $" + item.getPrice());
         itr3.next();
     }
-    System.out.println();
 
-    // Iterator over main dishes under a given price
-    MenuIterator itr4 = menu.getPriceIterator(15.00f);
-    System.out.println("ALL ITEMS BELOW PRICE");
+    // Display all desserts
+    MenuIterator itr4 = menu.getItemIterator(menu.DESSERT);
+    System.out.println("\nAll desserts");
     while (itr4.hasNext()) {
         MenuItem item = itr4.getItem();
-        System.out.println(item.getName() + " $" + item.getPrice());
+        System.out.println("\t" + item.getName() + " $" + item.getPrice());
         itr4.next();
     }
-    System.out.println();
 
+    // Display all heart healthy items
+    MenuIterator itr5 = menu.getHeartHealthyIterator();
+    System.out.println("\nAll heart healthy items");
+    while (itr5.hasNext()) {
+        MenuItem item = itr5.getItem();
+        System.out.println("\t" + item.getName() + " $" + item.getPrice());
+        itr5.next();
+    }
+
+    // Iterator over main dishes under a given price
+    MenuIterator itr6 = menu.getPriceIterator(15.00f);
+    System.out.println("\nAll main dishes under $15.00");
+    while (itr6.hasNext()) {
+        MenuItem item = itr6.getItem();
+        System.out.println("\t" + item.getName() + " $" + item.getPrice());
+        itr6.next();
+    }
     }
 }
