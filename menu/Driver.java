@@ -15,13 +15,13 @@ class Driver{
     Menu menu = new Menu();
 
     // Create menu items
-    MenuItem item1 = new MenuItem("Prime Rib", 1, false, 70.25f);
-    MenuItem item2 = new MenuItem("Cheese", 1, false, 6.50f);
-    MenuItem item3 = new MenuItem("Lasagna", 2, false, 22.15f);
-    MenuItem item4 = new MenuItem("Lobster", 2, true, 99.99f);
-    MenuItem item5 = new MenuItem("Bacon", 1, true, 12.99f);
-    MenuItem item6 = new MenuItem("Cheese Cake", 3, false, 5.00f);
-    MenuItem item7 = new MenuItem("Fruit", 2, true, 0.99f);
+    MenuItem item1 = new MenuItem("Prime Rib", 1, false, 70.25);
+    MenuItem item2 = new MenuItem("Cheese", 1, false, 6.50);
+    MenuItem item3 = new MenuItem("Lasagna", 2, false, 22.15);
+    MenuItem item4 = new MenuItem("Lobster", 2, true, 99.99);
+    MenuItem item5 = new MenuItem("Bacon", 1, true, 12.99);
+    MenuItem item6 = new MenuItem("Cheese Cake", 3, false, 5.00);
+    MenuItem item7 = new MenuItem("Fruit", 2, true, 0.99);
 
     // Append menu items to menu
     menu.append(item1);

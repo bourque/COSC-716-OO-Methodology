@@ -3,10 +3,10 @@ public class MenuItem{
     public String itemName;
     public int category;
     public boolean heartHealthy;
-    public float price;
+    public double price;
 
 
-    public MenuItem(String itemName, int category, boolean heartHealthy, float price){
+    public MenuItem(String itemName, int category, boolean heartHealthy, double price){
 
         this.itemName = itemName;
         this.category = category;
@@ -21,7 +21,7 @@ public class MenuItem{
     }
 
 
-    public float getPrice(){
+    public double getPrice(){
         return this.price;
     }
 

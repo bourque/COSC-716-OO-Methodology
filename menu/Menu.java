@@ -70,7 +70,7 @@ public class Menu{
      * @return priceIterator - A MenuIterator that iterates over all
      *         menu items under the given price that are main dishes
      */
-    public MenuIterator getPriceIterator(float price){
+    public MenuIterator getPriceIterator(double price){
        MenuIterator priceIterator = new PriceIterator(price);
        return priceIterator;
     }
@@ -206,11 +206,11 @@ public class Menu{
 
     private class PriceIterator implements MenuIterator {
 
-        private float price;
+        private double price;
         private int index = 0;
         private int menuSize = menu.size() - 1;
 
-        public PriceIterator(float price){
+        public PriceIterator(double price){
             this.price = price;
             this.index = getStartingIndex();
         }
