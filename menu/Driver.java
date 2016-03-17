@@ -15,15 +15,19 @@ class Driver{
     Menu menu = new Menu();
 
     // Create menu items
-    MenuItem item1 = new MenuItem("Prime Rib", 1, false, 70.25);
-    MenuItem item2 = new MenuItem("Cheese", 1, false, 6.50);
-    MenuItem item3 = new MenuItem("Lasagna", 2, false, 22.15);
-    MenuItem item4 = new MenuItem("Lobster", 2, true, 99.99);
-    MenuItem item5 = new MenuItem("Bacon", 1, true, 12.99);
-    MenuItem item6 = new MenuItem("Cheese Cake", 3, false, 5.00);
-    MenuItem item7 = new MenuItem("Fruit", 2, true, 0.99);
+    MenuItem item0 = new MenuItem("Ice Cream", 3, false, 7.15);
+    MenuItem item1 = new MenuItem("Salad", 1, true, 8.25);
+    MenuItem item2 = new MenuItem("Prime Rib", 2, false, 70.25);
+    MenuItem item3 = new MenuItem("Cheese", 1, false, 6.75);
+    MenuItem item4 = new MenuItem("Lasagna", 2, false, 22.15);
+    MenuItem item5 = new MenuItem("Lobster", 2, false, 99.99);
+    MenuItem item6 = new MenuItem("Bacon", 1, false, 12.99);
+    MenuItem item7 = new MenuItem("Cheese Cake", 3, false, 5.75);
+    MenuItem item8 = new MenuItem("Fruit", 3, true, 0.99);
+    MenuItem item9 = new MenuItem("Cheerios", 1, true, 2.25);
 
     // Append menu items to menu
+    menu.append(item0);
     menu.append(item1);
     menu.append(item2);
     menu.append(item3);
@@ -31,6 +35,8 @@ class Driver{
     menu.append(item5);
     menu.append(item6);
     menu.append(item7);
+    menu.append(item8);
+    menu.append(item9);
 
     // Display all menu items
     MenuIterator itr1 = menu.getAllItemsIterator();
