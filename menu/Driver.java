@@ -1,5 +1,14 @@
+/*
+Matthew Bourque
+3/22/2016
+Homework Assignment 3
+*/
+
 class Driver{
 
+    /**
+     * The main driver
+     */
     public static void main(String[] args){
 
     // Create menu

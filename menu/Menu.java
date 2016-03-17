@@ -7,7 +7,9 @@ public class Menu{
     public static final int DESSERT = 3;
     public ArrayList<MenuItem> menu = new ArrayList();
 
-
+    /**
+     * Overrides the toString method
+     */
     public String toString(){
 
         StringBuilder sb = new StringBuilder();
@@ -22,26 +24,52 @@ public class Menu{
     }
 
 
+    /**
+     * Append a menuItem to the ArrayList
+     * @param menuItem - the menuItem to append
+     */
     public void append(MenuItem menuItem){
         this.menu.add(menuItem);
     }
 
-
+    /**
+     * Return an AllItemsIterator
+     * @return allItemsIterator - A MenuIterator that iterates over all
+     *         menu items
+     */
     public MenuIterator getAllItemsIterator(){
         MenuIterator allItemsIterator = new AllItemsIterator();
         return allItemsIterator;
     }
 
+    /**
+     * Return an ItemIterator
+     * @param category - The item category to iterate over
+     * @return itemsIterator - A MenuIterator that iterates over all
+     *         menu items of a given category
+     */
     public MenuIterator getItemIterator(int category){
         MenuIterator itemIterator = new ItemIterator(category);
         return itemIterator;
     }
 
+    /**
+     * Return a HeartHealthyIterator
+     * @return heartHealthyIterator - A MenuIterator that iterates over
+     *         all heart healthy items
+     */
     public MenuIterator getHeartHealthyIterator(){
         MenuIterator heartHealthyIterator = new HeartHealthyIterator();
         return heartHealthyIterator;
     }
 
+    /**
+     * Return a Price Iterator
+     * @param price - The threshold price under which items will be
+     *        displayed
+     * @return priceIterator - A MenuIterator that iterates over all
+     *         menu items under the given price that are main dishes
+     */
     public MenuIterator getPriceIterator(float price){
        MenuIterator priceIterator = new PriceIterator(price);
        return priceIterator;
@@ -86,7 +114,7 @@ public class Menu{
 
             this.index += 1;
             int tempIndex = this.index;
-            while (menu.get(tempIndex).category != this.category && this.index < this.menuSize) {
+            while (this.index < this.menuSize && menu.get(tempIndex).category != this.category) {
                 this.index += 1;
                 tempIndex += 1;
             }
@@ -94,7 +122,7 @@ public class Menu{
 
         public boolean hasNext(){
 
-            if (this.index >= this.menuSize){
+            if (this.index > this.menuSize){
                 return false;
             } else{
                 int tempIndex = this.index;
@@ -137,7 +165,7 @@ public class Menu{
 
             this.index += 1;
             int tempIndex = this.index;
-            while (menu.get(tempIndex).heartHealthy != true && this.index < this.menuSize) {
+            while (this.index < this.menuSize && menu.get(tempIndex).heartHealthy != true) {
                 this.index += 1;
                 tempIndex += 1;
             }
@@ -145,7 +173,7 @@ public class Menu{
 
         public boolean hasNext(){
 
-            if (this.index >= this.menuSize){
+            if (this.index > this.menuSize){
                 return false;
             } else{
                 int tempIndex = this.index;
@@ -175,6 +203,7 @@ public class Menu{
         }
     }
 
+
     private class PriceIterator implements MenuIterator {
 
         private float price;
@@ -190,7 +219,7 @@ public class Menu{
 
             this.index += 1;
             int tempIndex = this.index;
-            while (menu.get(tempIndex).price >= this.price && this.index < this.menuSize) {
+            while (this.index < this.menuSize && menu.get(tempIndex).price >= this.price) {
                 this.index += 1;
                 tempIndex += 1;
             }
@@ -198,7 +227,7 @@ public class Menu{
 
         public boolean hasNext(){
 
-            if (this.index >= this.menuSize){
+            if (this.index > this.menuSize){
                 return false;
             } else{
                 int tempIndex = this.index;

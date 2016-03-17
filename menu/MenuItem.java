@@ -5,6 +5,7 @@ public class MenuItem{
     public boolean heartHealthy;
     public float price;
 
+
     public MenuItem(String itemName, int category, boolean heartHealthy, float price){
 
         this.itemName = itemName;
@@ -13,22 +14,27 @@ public class MenuItem{
         this.price = price;
     }
 
+
     public String toString(){
 
         return this.itemName + ":\t\t" + this.category + "\t" + this.heartHealthy + "\t" + this.price;
     }
 
+
     public float getPrice(){
         return this.price;
     }
+
 
     public int getCategory(){
         return this.category;
     }
 
+
     public String getName(){
         return this.itemName;
     }
+
 
     public boolean getHeartHealthy(){
         return this.heartHealthy;
