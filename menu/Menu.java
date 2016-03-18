@@ -28,7 +28,7 @@ public class Menu{
      * Append a menuItem to the ArrayList
      * @param menuItem - the menuItem to append
      */
-    public void append(MenuItem menuItem){
+    public void addItem(MenuItem menuItem){
         this.menu.add(menuItem);
     }
 
@@ -144,7 +144,7 @@ public class Menu{
         private int getStartingIndex(){
 
             int startingIndex = 0;
-            while (menu.get(startingIndex).category != this.category && startingIndex < this.menuSize) {
+            while (startingIndex <= this.menuSize && menu.get(startingIndex).category != this.category) {
                 startingIndex += 1;
             }
             return startingIndex;
@@ -196,7 +196,7 @@ public class Menu{
         private int getStartingIndex(){
 
             int startingIndex = 0;
-            while (menu.get(startingIndex).heartHealthy != true && startingIndex < this.menuSize) {
+            while (startingIndex <= this.menuSize && menu.get(startingIndex).heartHealthy != true) {
                 startingIndex += 1;
             }
             return startingIndex;
@@ -219,7 +219,7 @@ public class Menu{
 
             this.index += 1;
             int tempIndex = this.index;
-            while (this.index < this.menuSize && menu.get(tempIndex).price >= this.price) {
+            while (this.index < this.menuSize && menu.get(tempIndex).price >= this.price || menu.get(tempIndex).category != MAIN_DISH) {
                 this.index += 1;
                 tempIndex += 1;
             }
@@ -232,7 +232,7 @@ public class Menu{
             } else{
                 int tempIndex = this.index;
                 while (tempIndex <= menuSize) {
-                    if (menu.get(tempIndex).price >= this.price) {
+                    if (menu.get(tempIndex).price >= this.price || menu.get(tempIndex).category != MAIN_DISH) {
                         tempIndex += 1;
                     } else {
                         return true;
@@ -249,7 +249,7 @@ public class Menu{
         private int getStartingIndex(){
 
             int startingIndex = 0;
-            while (menu.get(startingIndex).price >= this.price && startingIndex < this.menuSize) {
+            while (startingIndex < this.menuSize && menu.get(startingIndex).price >= this.price || menu.get(startingIndex).category != MAIN_DISH) {
                 startingIndex += 1;
             }
             return startingIndex;
