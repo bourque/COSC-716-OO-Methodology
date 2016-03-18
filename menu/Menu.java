@@ -7,6 +7,7 @@ public class Menu{
     public static final int DESSERT = 3;
     public ArrayList<MenuItem> menu = new ArrayList();
 
+
     /**
      * Overrides the toString method
      */
@@ -22,7 +23,6 @@ public class Menu{
 
         return sb.toString();
     }
-
 
     /**
      * Append a menuItem to the ArrayList
@@ -81,10 +81,17 @@ public class Menu{
         private int index = 0;
         private int menuSize = menu.size() - 1;
 
+        /**
+         * Iterate to the next MenuItem
+         */
         public void next(){
             index += 1;
         }
 
+        /**
+         * Determine if there is a next MenuItem
+         * @return true if there is a next item, false if there is not
+         */
         public boolean hasNext(){
             if (index > this.menuSize) {
                 return false;
@@ -93,6 +100,10 @@ public class Menu{
             }
         }
 
+        /**
+         * Return the MenuItem of the current index
+         * @return MenuItem - The MenuItem of the current index
+         */
         public MenuItem getItem(){
             return menu.get(index);
         }
@@ -105,11 +116,19 @@ public class Menu{
         private int index = 0;
         private int menuSize = menu.size() - 1;
 
+        /**
+         * Constructor method
+         * @param category - the item category. Can be 1 (Appetizer),
+         *        2 (main dish), or 3 (dessert)
+         */
         public ItemIterator(int category){
             this.category = category;
             index = getStartingIndex();
         }
 
+        /**
+         * Iterate to the next MenuItem of the given category
+         */
         public void next(){
 
             index += 1;
@@ -118,10 +137,18 @@ public class Menu{
             }
         }
 
+        /**
+         * Determine if there is a next MenuItem of the given category
+         * @return true if there is a next item, false if there is not
+         */
         public boolean hasNext(){
 
+            // If we have reached the end of the menu, there is no next item regardless
             if (index > this.menuSize){
                 return false;
+
+            // If there are still items in the menu, check to see if any of them are of
+            // the given category
             } else{
                 int tempIndex = index;
                 while (tempIndex <= this.menuSize) {
@@ -135,10 +162,18 @@ public class Menu{
             }
         }
 
+        /**
+         * Return the MenuItem of the current index
+         * @return MenuItem - The MenuItem of the current index
+         */
         public MenuItem getItem(){
             return menu.get(index);
         }
 
+        /**
+         * Determine the first index in which there is a MenuItem of the given category
+         * @return startingIndex - The index of the first MenuItem of the given category
+         */
         private int getStartingIndex(){
 
             int startingIndex = 0;
@@ -155,10 +190,16 @@ public class Menu{
         private int index = 0;
         private int menuSize = menu.size() - 1;
 
+        /**
+         * Constructor method
+         */
         public HeartHealthyIterator(){
             index = getStartingIndex();
         }
 
+        /**
+         * Iterate to the next heart healthy MenuItem
+         */
         public void next(){
 
             index += 1;
@@ -167,6 +208,10 @@ public class Menu{
             }
         }
 
+        /**
+         * Determine if there is a next heart healthy MenuItem
+         * @return true if there is a next item, false if there is not
+         */
         public boolean hasNext(){
 
             if (index > this.menuSize){
@@ -184,11 +229,18 @@ public class Menu{
             }
         }
 
-
+        /**
+         * Return the MenuItem of the current index
+         * @return MenuItem - The MenuItem of the current index
+         */
         public MenuItem getItem(){
             return menu.get(index);
         }
 
+        /**
+         * Determine the first index in which there is a heart healty MenuItem
+         * @return startingIndex - The index of the first heart healthy MenuItem
+         */
         private int getStartingIndex(){
 
             int startingIndex = 0;
@@ -206,11 +258,18 @@ public class Menu{
         private int index = 0;
         private int menuSize = menu.size() - 1;
 
+        /**
+         * Constructor method
+         * @param price - the price under which menu items will be displayed
+         */
         public PriceIterator(double price){
             this.price = price;
             index = getStartingIndex();
         }
 
+        /**
+         * Iterate to the next main dish MenuItem that is under the given price
+         */
         public void next(){
 
             index += 1;
@@ -222,6 +281,10 @@ public class Menu{
             }
         }
 
+        /**
+         * Determine if there is a next main dish MenuItem under the given price
+         * @return true if there is a next item, false if there is not
+         */
         public boolean hasNext(){
 
             if (index > this.menuSize){
@@ -239,10 +302,20 @@ public class Menu{
             }
         }
 
+        /**
+         * Return the MenuItem of the current index
+         * @return MenuItem - The MenuItem of the current index
+         */
         public MenuItem getItem(){
             return menu.get(index);
         }
 
+        /**
+         * Determine the first index in which there is a main dish
+         * MenuItem under the given price
+         * @return startingIndex - The index of the first main dish
+         *         MenuItem under the given price
+         */
         private int getStartingIndex(){
 
             int startingIndex = 0;

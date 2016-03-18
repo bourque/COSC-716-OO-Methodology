@@ -84,7 +84,7 @@ class Driver{
     }
 
     // Iterator over main dishes under a given price
-    MenuIterator itr6 = menu.getPriceIterator(15.00f);
+    MenuIterator itr6 = menu.getPriceIterator(15.00);
     System.out.println("\nAll main dishes under $15.00");
     while (itr6.hasNext()) {
         MenuItem item = itr6.getItem();
