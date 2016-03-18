@@ -113,10 +113,8 @@ public class Menu{
         public void next(){
 
             this.index += 1;
-            int tempIndex = this.index;
-            while (this.index < this.menuSize && menu.get(tempIndex).category != this.category) {
+            while (this.index < this.menuSize && menu.get(this.index).category != this.category) {
                 this.index += 1;
-                tempIndex += 1;
             }
         }
 
@@ -164,10 +162,8 @@ public class Menu{
         public void next(){
 
             this.index += 1;
-            int tempIndex = this.index;
-            while (this.index < this.menuSize && menu.get(tempIndex).heartHealthy != true) {
+            while (this.index < this.menuSize && menu.get(this.index).heartHealthy != true) {
                 this.index += 1;
-                tempIndex += 1;
             }
         }
 
@@ -218,10 +214,11 @@ public class Menu{
         public void next(){
 
             this.index += 1;
-            int tempIndex = this.index;
-            while (this.index < this.menuSize && menu.get(tempIndex).price >= this.price || menu.get(tempIndex).category != MAIN_DISH) {
+            while (menu.get(this.index).price >= this.price || menu.get(this.index).category != MAIN_DISH) {
+                if (this.index >= this.menuSize) {
+                    break;
+                }
                 this.index += 1;
-                tempIndex += 1;
             }
         }
 
