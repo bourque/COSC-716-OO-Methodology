@@ -177,7 +177,13 @@ public class Menu{
         private int getStartingIndex(){
 
             int startingIndex = 0;
-            while (startingIndex <= this.menuSize && menu.get(startingIndex).category != this.category) {
+            while (menu.get(startingIndex).category != this.category) {
+
+                // Break out of loop if the end of the menu is reached
+                if (startingIndex >= this.menuSize) {
+                        break;
+                }
+
                 startingIndex += 1;
             }
             return startingIndex;
@@ -244,9 +250,15 @@ public class Menu{
         private int getStartingIndex(){
 
             int startingIndex = 0;
-            while (startingIndex <= this.menuSize && menu.get(startingIndex).heartHealthy != true) {
+            while (menu.get(startingIndex).heartHealthy != true) {
+
+                // Break out of loop if the end of the menu is reached
+                if (startingIndex >= this.menuSize){
+                    break;
+                }
                 startingIndex += 1;
             }
+
             return startingIndex;
         }
     }
@@ -319,7 +331,13 @@ public class Menu{
         private int getStartingIndex(){
 
             int startingIndex = 0;
-            while (startingIndex < this.menuSize && menu.get(startingIndex).price >= this.price || menu.get(startingIndex).category != MAIN_DISH) {
+            while (menu.get(startingIndex).price >= this.price || menu.get(startingIndex).category != MAIN_DISH) {
+
+                // Break out of loop if the end of the menu is reached
+                if (startingIndex >= this.menuSize) {
+                    break;
+                }
+
                 startingIndex += 1;
             }
             return startingIndex;
