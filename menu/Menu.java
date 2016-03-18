@@ -82,11 +82,11 @@ public class Menu{
         private int menuSize = menu.size() - 1;
 
         public void next(){
-            this.index += 1;
+            index += 1;
         }
 
         public boolean hasNext(){
-            if (this.index > this.menuSize) {
+            if (index > this.menuSize) {
                 return false;
             } else {
                 return true;
@@ -94,7 +94,7 @@ public class Menu{
         }
 
         public MenuItem getItem(){
-            return menu.get(this.index);
+            return menu.get(index);
         }
     }
 
@@ -107,23 +107,23 @@ public class Menu{
 
         public ItemIterator(int category){
             this.category = category;
-            this.index = getStartingIndex();
+            index = getStartingIndex();
         }
 
         public void next(){
 
-            this.index += 1;
-            while (this.index < this.menuSize && menu.get(this.index).category != this.category) {
-                this.index += 1;
+            index += 1;
+            while (index < this.menuSize && menu.get(index).category != this.category) {
+                index += 1;
             }
         }
 
         public boolean hasNext(){
 
-            if (this.index > this.menuSize){
+            if (index > this.menuSize){
                 return false;
             } else{
-                int tempIndex = this.index;
+                int tempIndex = index;
                 while (tempIndex <= this.menuSize) {
                     if (menu.get(tempIndex).category != this.category) {
                         tempIndex += 1;
@@ -136,7 +136,7 @@ public class Menu{
         }
 
         public MenuItem getItem(){
-            return menu.get(this.index);
+            return menu.get(index);
         }
 
         private int getStartingIndex(){
@@ -156,23 +156,23 @@ public class Menu{
         private int menuSize = menu.size() - 1;
 
         public HeartHealthyIterator(){
-            this.index = getStartingIndex();
+            index = getStartingIndex();
         }
 
         public void next(){
 
-            this.index += 1;
-            while (this.index < this.menuSize && menu.get(this.index).heartHealthy != true) {
-                this.index += 1;
+            index += 1;
+            while (index < this.menuSize && menu.get(index).heartHealthy != true) {
+                index += 1;
             }
         }
 
         public boolean hasNext(){
 
-            if (this.index > this.menuSize){
+            if (index > this.menuSize){
                 return false;
             } else{
-                int tempIndex = this.index;
+                int tempIndex = index;
                 while (tempIndex <= menuSize) {
                     if (menu.get(tempIndex).heartHealthy != true) {
                         tempIndex += 1;
@@ -186,7 +186,7 @@ public class Menu{
 
 
         public MenuItem getItem(){
-            return menu.get(this.index);
+            return menu.get(index);
         }
 
         private int getStartingIndex(){
@@ -208,26 +208,26 @@ public class Menu{
 
         public PriceIterator(double price){
             this.price = price;
-            this.index = getStartingIndex();
+            index = getStartingIndex();
         }
 
         public void next(){
 
-            this.index += 1;
-            while (menu.get(this.index).price >= this.price || menu.get(this.index).category != MAIN_DISH) {
-                if (this.index >= this.menuSize) {
+            index += 1;
+            while (menu.get(index).price >= this.price || menu.get(index).category != MAIN_DISH) {
+                if (index >= this.menuSize) {
                     break;
                 }
-                this.index += 1;
+                index += 1;
             }
         }
 
         public boolean hasNext(){
 
-            if (this.index > this.menuSize){
+            if (index > this.menuSize){
                 return false;
             } else{
-                int tempIndex = this.index;
+                int tempIndex = index;
                 while (tempIndex <= menuSize) {
                     if (menu.get(tempIndex).price >= this.price || menu.get(tempIndex).category != MAIN_DISH) {
                         tempIndex += 1;
@@ -240,7 +240,7 @@ public class Menu{
         }
 
         public MenuItem getItem(){
-            return menu.get(this.index);
+            return menu.get(index);
         }
 
         private int getStartingIndex(){
