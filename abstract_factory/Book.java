@@ -11,6 +11,6 @@ public class Book {
     }
 
     public String toString(){
-        return "\t" + name + "\t" + type + "\t" + availability;
+        return "\t" + name + " (" + type + "," + availability + ")";
     }
 }
