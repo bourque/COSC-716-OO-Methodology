@@ -1,13 +1,47 @@
-// public class PhysicalBookFactory extends BookFactory {
+public class PhysicalBookFactory extends BookFactory {
 
-//     public Book getFiction(){
-//         // Get E-Books
-//     }
+    private int index = 0;
+    private int librarySize = library.size() - 1;
 
-//     public Book getNonFiction(){
-//         // Get Physical Books
-//     }
+    public Book getFiction(){
 
-//     public void next(){}
-//     public boolean hasNext(){}
-// }
+        Book book = getNextBook("fiction");
+        return book;
+    }
+
+    public Book getNonFiction(){
+
+        Book book = getNextBook("non fiction");
+        return book;
+    }
+
+    public boolean hasNext(String type){
+
+        for (int i=index; i<=librarySize; i++){
+            Book book = library.get(i);
+            if (book.type.equals(type) && book.availability.matches("physical|both")) {
+                return true;
+            }
+        }
+
+        // We have reached the end. Reset the index for potential future iterations
+        index = 0;
+
+        return false;
+    }
+
+    private Book getNextBook(String type){
+
+        int tempIndex = index;
+        for (int i=index; i<=librarySize; i++){
+            Book book = library.get(i);
+            if (book.type.equals(type) && book.availability.matches("physical|both")) {
+                tempIndex = i;
+                break;
+            }
+        }
+        index = tempIndex + 1;
+
+        return library.get(tempIndex);
+    }
+}
