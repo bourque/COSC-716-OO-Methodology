@@ -10,17 +10,25 @@ public abstract class BookFactory {
     public abstract Book getNonFiction();
     public abstract boolean hasNext(String type);
 
-    public static BookFactory getBookFactory(String type) {
-        if (type.equals(BookFactory.E_BOOK)) {
+    public static BookFactory getBookFactory(String availability) throws InvalidBookTypeException {
+
+        if (availability.equals(BookFactory.E_BOOK)) {
             return new EBookFactory();
-        }
-        if (type.equals(BookFactory.PHYSICAL_BOOK)) {
+        } else if (availability.equals(BookFactory.PHYSICAL_BOOK)) {
             return new PhysicalBookFactory();
+        } else {
+            throw new InvalidBookTypeException();
         }
-        return new EBookFactory();
     }
 
     public static void addBook(Book book) {
         library.add(book);
+    }
+}
+
+class InvalidBookTypeException extends Exception {
+
+    public InvalidBookTypeException() {
+        System.out.println("Invalid Book Type.  Must be 'ebook' or 'physical'");
     }
 }

@@ -18,33 +18,37 @@ class Driver {
         BookFactory.addBook(book4);
         BookFactory.addBook(book5);
 
-        // Get the factories
-        BookFactory ebf = BookFactory.getBookFactory("ebook");
-        BookFactory pbf = BookFactory.getBookFactory("physical");
+        try{
+            // Get the factories
+            BookFactory ebf = BookFactory.getBookFactory("ebook");
+            BookFactory pbf = BookFactory.getBookFactory("physical");
 
-        // Print out fiction and non fiction books for each factory
-        System.out.println("\nFiction e-books:");
-        while(ebf.hasNext("fiction")) {
-            Book book = ebf.getFiction();
-            System.out.println(book);
-        }
+            // Print out fiction and non-fiction books for each factory
+            System.out.println("\nFiction e-books:");
+            while(ebf.hasNext("fiction")) {
+                Book book = ebf.getFiction();
+                System.out.println(book);
+            }
 
-        System.out.println("\nNon-fiction e-books:");
-        while(ebf.hasNext("non fiction")) {
-            Book book = ebf.getNonFiction();
-            System.out.println(book);
-        }
+            System.out.println("\nNon-fiction e-books:");
+            while(ebf.hasNext("non fiction")) {
+                Book book = ebf.getNonFiction();
+                System.out.println(book);
+            }
 
-        System.out.println("\nFiction pysical books:");
-        while(pbf.hasNext("fiction")) {
-            Book book = pbf.getFiction();
-            System.out.println(book);
-        }
+            System.out.println("\nFiction pysical books:");
+            while(pbf.hasNext("fiction")) {
+                Book book = pbf.getFiction();
+                System.out.println(book);
+            }
 
-        System.out.println("\nNon-fiction pysical books:");
-        while(pbf.hasNext("non fiction")) {
-            Book book = pbf.getNonFiction();
-            System.out.println(book);
+            System.out.println("\nNon-fiction pysical books:");
+            while(pbf.hasNext("non fiction")) {
+                Book book = pbf.getNonFiction();
+                System.out.println(book);
+            }
+        } catch (InvalidBookTypeException e) {
+            System.exit(1);
         }
     }
 }
