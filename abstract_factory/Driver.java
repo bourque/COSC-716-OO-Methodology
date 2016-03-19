@@ -11,17 +11,18 @@ class Driver {
         Book book6 = new Book(false, "both");
 
         // Add books to library
-        EBookFactory ebf = new EBookFactory();
-        PhysicalBookFactory pbf = new PhysicalBookFactory();
-        ebf.addBook(book1);
-        ebf.addBook(book2);
-        ebf.addBook(book3);
-        ebf.addBook(book4);
-        ebf.addBook(book5);
-        ebf.addBook(book6);
+        BookFactory.addBook(book1);
+        BookFactory.addBook(book2);
+        BookFactory.addBook(book3);
+        BookFactory.addBook(book4);
+        BookFactory.addBook(book5);
+        BookFactory.addBook(book6);
 
-        System.out.println(ebf);
+        // Get the factories
+        BookFactory ebf = BookFactory.getBookFactory("ebook");
+        BookFactory pbf = BookFactory.getBookFactory("pysical book");
 
+        // // Print out fiction and non fiction books for each factory
         // ebf.getFictionBook();
         // ebf.getNonFictionBook();
         // pbf.getFictionBook();
