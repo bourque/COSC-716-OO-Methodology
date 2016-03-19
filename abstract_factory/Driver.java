@@ -12,20 +12,20 @@ class Driver {
     public static void main(String[] args) {
 
         // Create books to test with
-        Book book0 = new Book("1984", "fiction", "ebook");
-        Book book1 = new Book("Life in the Universe", "non fiction", "ebook");
-        Book book2 = new Book("Animal Farm", "fiction", "physical");
-        Book book3 = new Book("A History of Grapefruit", "non fiction", "physical");
-        Book book4 = new Book("Of Mice and Men", "fiction", "both");
-        Book book5 = new Book("Surviving the Northwest Territories", "non fiction", "both");
+        Book book1 = new Book("1984", "fiction", "ebook");
+        Book book2 = new Book("Life in the Universe", "non fiction", "ebook");
+        Book book3 = new Book("Animal Farm", "fiction", "physical");
+        Book book4 = new Book("A History of Grapefruit", "non fiction", "physical");
+        Book book5 = new Book("Of Mice and Men", "fiction", "both");
+        Book book6 = new Book("Surviving the Northwest Territories", "non fiction", "both");
 
         // Add books to library
-        BookFactory.addBook(book0);
         BookFactory.addBook(book1);
         BookFactory.addBook(book2);
         BookFactory.addBook(book3);
         BookFactory.addBook(book4);
         BookFactory.addBook(book5);
+        BookFactory.addBook(book6);
 
         try{
             // Get the factories
