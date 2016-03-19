@@ -1,11 +1,16 @@
 public class Book {
 
-    public boolean isFiction;
+    public String name;
     public String type;
+    public String availability;
 
-    public Book (boolean isFiction, String type){
-        this.isFiction = isFiction;
+    public Book (String name, String type, String availability){
+        this.name = name;
         this.type = type;
+        this.availability = availability;
     }
 
+    public String toString(){
+        return "\t" + name + "\t" + type + "\t" + availability;
+    }
 }
