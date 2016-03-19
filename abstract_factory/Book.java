@@ -4,6 +4,12 @@ public class Book {
     public String type;
     public String availability;
 
+    /**
+     * Constructor method
+     * @param name - the name of the book
+     * @param type - the book type (fiction or non-fiction)
+     * @param available - what the book is available in (ebook, physical, or both)
+     */
     public Book (String name, String type, String availability){
 
         // Make sure the attributes are valid
@@ -19,6 +25,9 @@ public class Book {
         this.availability = availability;
     }
 
+    /**
+     * Overrides the toString method
+     */
     public String toString(){
         return "\t" + name + " (" + type + "," + availability + ")";
     }

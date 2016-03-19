@@ -1,5 +1,14 @@
+/*
+Matthew Bourque
+3/22/2016
+Homework Assignment 4
+*/
+
 class Driver {
 
+    /**
+     * The main driver
+     */
     public static void main(String[] args) {
 
         // Create books to test with

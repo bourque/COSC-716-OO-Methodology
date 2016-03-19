@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public abstract class BookFactory {
 
-    public static final String E_BOOK = "ebook";
-    public static final String PHYSICAL_BOOK = "physical";
+    private static final String E_BOOK = "ebook";
+    private static final String PHYSICAL_BOOK = "physical";
     public static ArrayList<Book> library = new ArrayList();
 
     public abstract Book getFiction();
