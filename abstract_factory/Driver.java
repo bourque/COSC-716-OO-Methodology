@@ -47,7 +47,7 @@ class Driver {
                 Book book = pbf.getNonFiction();
                 System.out.println(book);
             }
-        } catch (InvalidBookTypeException e) {
+        } catch (InvalidFactoryTypeException e) {
             System.exit(1);
         }
     }
