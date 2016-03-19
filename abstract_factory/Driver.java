@@ -3,12 +3,12 @@ class Driver {
     public static void main(String[] args) {
 
         // Create books to test with
-        Book book0 = new Book("name0", "fiction", "ebook");
-        Book book1 = new Book("name1", "non fiction", "ebook");
-        Book book2 = new Book("name2", "fiction", "physical");
-        Book book3 = new Book("name3", "non fiction", "physical");
-        Book book4 = new Book("name4", "fiction", "both");
-        Book book5 = new Book("name5", "non fiction", "both");
+        Book book0 = new Book("1984", "fiction", "ebook");
+        Book book1 = new Book("Life in the Universe", "non fiction", "ebook");
+        Book book2 = new Book("Animal Farm", "fiction", "physical");
+        Book book3 = new Book("A History of Grapefruit", "non fiction", "physical");
+        Book book4 = new Book("Of Mice and Men", "fiction", "both");
+        Book book5 = new Book("Surviving the Northwest Territories", "non fiction", "both");
 
         // Add books to library
         BookFactory.addBook(book0);
