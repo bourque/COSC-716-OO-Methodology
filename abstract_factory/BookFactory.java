@@ -10,17 +10,26 @@ public abstract class BookFactory {
     public abstract Book getNonFiction();
     public abstract boolean hasNext(String type);
 
-    public static BookFactory getBookFactory(String availability) throws InvalidFactoryTypeException {
+    /**
+     * Return the appropriate BookFactory for the given type
+     * @param factoryType - The type of factory to return
+     * @return BookFactory - either an EBookFactory, or a PhysicalBookFactory
+     */
+    public static BookFactory getBookFactory(String factoryType) throws InvalidFactoryTypeException {
 
-        if (availability.equals(BookFactory.E_BOOK)) {
+        if (factoryType.equals(BookFactory.E_BOOK)) {
             return new EBookFactory();
-        } else if (availability.equals(BookFactory.PHYSICAL_BOOK)) {
+        } else if (factoryType.equals(BookFactory.PHYSICAL_BOOK)) {
             return new PhysicalBookFactory();
         } else {
             throw new InvalidFactoryTypeException();
         }
     }
 
+    /**
+     * Add a book to the library (i.e. the list of books)
+     * @param book - the book to add
+     */
     public static void addBook(Book book) {
         library.add(book);
     }
