@@ -46,6 +46,6 @@ public class BasicReceipt implements Receipt {
     }
 
     public void printReceipt() {
-        System.out.println(stateCode);
+        System.out.println("This is my receipt");
     }
 }

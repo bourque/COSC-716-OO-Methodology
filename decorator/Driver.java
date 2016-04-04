@@ -29,8 +29,8 @@ class Driver {
         // Print receipt
         try {
             ReceiptFactory rf = new ReceiptFactory(shoppingCart, date);
-            // Receipt receipt = rf.getReceipt();
-            // receipt.printReceipt();
+            Receipt receipt = rf.getReceipt();
+            receipt.printReceipt();
         } catch (UnknownAddOnTypeException e){
             System.out.println(e);
         }
