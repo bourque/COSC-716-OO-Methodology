@@ -29,7 +29,7 @@ class Driver {
         // Print receipt
         try {
             ReceiptFactory rf = new ReceiptFactory(shoppingCart, date);
-            Receipt receipt = rf.getReciept();
+            // Receipt receipt = rf.getReceipt();
             // receipt.printReceipt();
         } catch (UnknownAddOnTypeException e){
             System.out.println(e);
@@ -52,7 +52,7 @@ class Driver {
     private static ArrayList<Item> getAvailableItems() {
 
         // Initialize empty list to hold available items
-        ArrayList<Item> availableItems = new ArrayList();
+        ArrayList<Item> availableItems = new ArrayList<Item>();
 
         try {
 

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class ShoppingCart {
 
-    public ArrayList<Item> shoppingCart = new ArrayList();
+    public ArrayList<Item> shoppingCart = new ArrayList<Item>();
 
     public void addItem(Item item) {
         shoppingCart.add(item);

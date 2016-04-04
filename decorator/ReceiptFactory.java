@@ -1,4 +1,6 @@
 import java.util.Date;
+import java.util.*;
+import java.lang.reflect.Field;
 
 public class ReceiptFactory {
 
@@ -10,27 +12,41 @@ public class ReceiptFactory {
 
         this.items = items;
         this.date = date;
-    }
-
-    public Receipt getReciept() {
 
         // Initilalize Receipt
-        Receipt receipt = new BasicReceipt(items, date);
-
-        // Compute the necessary tax
-        // TaxComputation tc = new TaxComputation();
-        // tc.computeTax(items, date);
-
-        // Determine add-ons
-        // getAddOns(addOns);
-
-        // Print add-ons in appropriate order
-        // for (AddOn a:addOns) {
-        //     // logic
-        // }
-
-        return receipt;
+        Receipt br = new BasicReceipt(items, date);
+        for (Field f : br.getClass().getDeclaredFields()) {
+            System.out.println(f.getName());
+        }
+        //System.out.println(br.stateCode);
     }
+
+    // public Receipt getReceipt() {
+
+
+
+    //     // // Compute the necessary tax
+    //     // if (receipt.stateCode.equals("MD")) {
+    //     //     TaxComputation tc = new MDTaxComputation();
+    //     // } else if (receipt.stateCode.equals("MA")) {
+    //     //     TaxComputation tc = new MATaxComputation();
+    //     // } else if (receipt.stateCode.equals("CA")) {
+    //     //     TaxComputation tc = new CATaxComputation();
+    //     // } else {
+    //     //     throw new UnimplementedStateTaxComputationException(receipt.stateCode);
+    //     // }
+    //     // tc.computeTax(items, date);
+
+    //     // Determine add-ons
+    //     // getAddOns(addOns);
+
+    //     // Print add-ons in appropriate order
+    //     // for (AddOn a:addOns) {
+    //     //     // logic
+    //     // }
+
+    //     return br;
+    // }
 
     // private void getAddOns(AddOn[] addOns) {
 
