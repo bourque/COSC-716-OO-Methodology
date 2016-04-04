@@ -4,64 +4,84 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Calendar;
 import java.util.Scanner;
 
 class Driver {
 
     public static void main(String[] args) {
 
+        // Get the date
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2016, 4, 4);
+        Date date = calendar.getTime();
+
         // Get the list of available items
-        ArrayList<Item> availableItems = new ArrayList();
-        try {
-            availableItems = getAvailableItems();
-        } catch(FileNotFoundException e) {
-            System.out.println("Error " + e.toString());
-        }
+        ArrayList<Item> availableItems = getAvailableItems();
 
         // Display the available items to the user
+        displayAvailableItems(availableItems);
+
+        // Get user selection
+        ShoppingCart shoppingCart = getPurchasedItems(availableItems);
+
+        // Print receipt
+        try {
+            ReceiptFactory rf = new ReceiptFactory(shoppingCart, date);
+            Receipt receipt = rf.getReciept();
+            // receipt.printReceipt();
+        } catch (UnknownAddOnTypeException e){
+            System.out.println(e);
+        }
+    }
+
+    private static void displayAvailableItems(ArrayList<Item> availableItems) {
+
         System.out.println("\nAvailable Products:");
         System.out.println("\tName\tPrice");
+
         for (int i=1; i<=availableItems.size(); i++) {
             System.out.println("Item " + i + " - " + availableItems.get(i - 1));
         }
+
         System.out.println("\nPlease select the item(s) you wish to purchase");
         System.out.println("press 'q' when finished");
-
-        // Get user selection
-        PurchasedItems purchasedItems =  getPurchasedItems(availableItems);
-
-        // ReceiptFactory rf = new ReceiptFactory(items, date);
-        // Receipt receipt = rf.getReceipt();
-        // receipt.printReceipt();
     }
 
-    private static ArrayList<Item> getAvailableItems() throws FileNotFoundException {
+    private static ArrayList<Item> getAvailableItems() {
 
         // Initialize empty list to hold available items
         ArrayList<Item> availableItems = new ArrayList();
 
-        // Read in the available items
-        Scanner scanner = new Scanner(new File("available_items.dat"));
-        while(scanner.hasNext()) {
+        try {
 
-            // Parse each line
-            String next = scanner.next();
-            String[] line = next.split(",");
-            String name = line[0];
-            Double price = Double.parseDouble(line[1]);
+            // Read in the available items
+            Scanner scanner = new Scanner(new File("available_items.dat"));
+            while(scanner.hasNext()) {
 
-            // Add item to list of available items
-            Item item = new Item(name, price);
-            availableItems.add(item);
+                // Parse each line
+                String next = scanner.nextLine();
+                String[] line = next.split(",");
+                String name = line[0];
+                Double price = Double.parseDouble(line[1]);
+
+                // Add item to list of available items
+                Item item = new Item(name, price);
+                availableItems.add(item);
+            }
+            scanner.close();
+
+        } catch(FileNotFoundException e) {
+            System.out.println("Error " + e.toString());
         }
-        scanner.close();
 
         return availableItems;
     }
 
-    private static PurchasedItems getPurchasedItems(ArrayList<Item> availableItems) {
+    private static ShoppingCart getPurchasedItems(ArrayList<Item> availableItems) {
 
-        PurchasedItems purchasedItems = new PurchasedItems();
+        ShoppingCart shoppingCart = new ShoppingCart();
 
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -77,7 +97,7 @@ class Driver {
                 } else if (line.matches("\\d+") && Integer.parseInt(line) >= 1 && Integer.parseInt(line) <= availableItems.size()) {
                     int itemNumber = Integer.parseInt(line);
                     Item item = availableItems.get(itemNumber - 1);
-                    purchasedItems.addItem(item);
+                    shoppingCart.addItem(item);
                     System.out.println("\nAdded item " + itemNumber + " to cart.");
 
                 // if the user enters an invalid reponse, then let the user try again
@@ -87,7 +107,7 @@ class Driver {
 
                 // Display current shopping cart
                 System.out.println("\nThe current shopping cart includes:");
-                System.out.println(purchasedItems);
+                System.out.println(shoppingCart);
 
                 // Let user make another selection
                 System.out.println("\nPlease select the item(s) you wish to purchase");
@@ -100,8 +120,8 @@ class Driver {
 
         // Print the finalized cart
         System.out.println("\nYour shopping cart includes:");
-        System.out.println(purchasedItems);
+        System.out.println(shoppingCart);
 
-        return purchasedItems;
+        return shoppingCart;
     }
 }
