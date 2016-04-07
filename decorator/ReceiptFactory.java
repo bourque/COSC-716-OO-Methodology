@@ -1,6 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class ReceiptFactory {
@@ -29,7 +29,7 @@ public class ReceiptFactory {
         getAddOns();
     }
 
-    public Receipt getReceipt(ShoppingCart shoppingCart, Date date) throws UnknownAddOnTypeException, UnknownStateTaxComputationException {
+    public Receipt getReceipt(ShoppingCart shoppingCart, Calendar date) throws UnknownAddOnTypeException, UnknownStateTaxComputationException {
 
         // Initialize receipt
         Receipt receipt = new BasicReceipt(shoppingCart, date);

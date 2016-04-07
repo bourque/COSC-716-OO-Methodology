@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -13,9 +12,8 @@ class Driver {
     public static void main(String[] args) {
 
         // Get the date
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2016, 4, 4);
-        Date date = calendar.getTime();
+        Calendar date = Calendar.getInstance();
+        date.set(2016, Calendar.APRIL, 7);
 
         // Get the list of available items
         ArrayList<Item> availableItems = getAvailableItems();
@@ -67,9 +65,10 @@ class Driver {
                 String[] line = next.split(",");
                 String name = line[0];
                 Double price = Double.parseDouble(line[1]);
+                String category = line[2];
 
                 // Add item to list of available items
-                Item item = new Item(name, price);
+                Item item = new Item(name, price, category);
                 availableItems.add(item);
             }
             scanner.close();

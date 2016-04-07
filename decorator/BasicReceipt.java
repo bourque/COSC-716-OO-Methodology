@@ -1,18 +1,18 @@
-import java.util.Date;
+import java.util.Calendar;
 
 public class BasicReceipt implements Receipt {
 
     private ShoppingCart shoppingCart;
-    private Date date;
+    private Calendar date;
     private double totalSale;
     private double amountDue;
     private TaxComputation tc;
 
-    public BasicReceipt(ShoppingCart shoppingCart, Date date) {
+    public BasicReceipt(ShoppingCart shoppingCart, Calendar date) {
 
         this.shoppingCart = shoppingCart;
         this.date = date;
-        this.totalSale = getTotal();
+        this.totalSale = shoppingCart.getTotal();
     }
 
     public void setTaxComputation(TaxComputation tc) {
@@ -25,16 +25,6 @@ public class BasicReceipt implements Receipt {
         System.out.println(shoppingCart);
         System.out.println("\nTotal:\n\t" + totalSale);
         System.out.println("\nAmount Due:\n\t" + amountDue + "\n");
-    }
-
-    private Double getTotal() {
-
-        double sum = 0;
-        for(Item item:shoppingCart.items) {
-            sum += item.price;
-        }
-
-        return sum;
     }
 
     public void getAmountDue() {

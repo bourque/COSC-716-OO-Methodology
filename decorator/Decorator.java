@@ -6,7 +6,7 @@ public abstract class Decorator implements Receipt {
         trailer = receipt;
     }
 
-    protected void callTrailer() {
+    private void callTrailer() {
         trailer.printReceipt();
     }
 

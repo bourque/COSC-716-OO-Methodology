@@ -1,6 +1,6 @@
-import java.util.Date;
+import java.util.Calendar;
 
 public abstract class TaxComputation {
-    public abstract double computeTax(ShoppingCart items, Date date);
-    protected abstract boolean taxHoliday(Date date);
+    public abstract double computeTax(ShoppingCart shoppingCart, Calendar date);
+    protected abstract boolean taxHoliday(Calendar date);
 }

@@ -8,6 +8,16 @@ public class ShoppingCart {
         items.add(item);
     }
 
+    public Double getTotal() {
+
+        double sum = 0;
+        for(Item item:items) {
+            sum += item.price;
+        }
+
+        return sum;
+    }
+
     public String toString() {
 
         StringBuilder sb = new StringBuilder();
