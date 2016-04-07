@@ -1,51 +1,45 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Date;
-import java.util.Scanner;
 
 public class BasicReceipt implements Receipt {
 
-    public ShoppingCart items;
-    public Date date;
-    public int storeID;
-    public String storeAddress;
-    public String storePhoneNumber;
-    public String stateCode = new String();
-    public TaxComputation tc;
-    public double totalSale;
-    public double amountDue;
+    private ShoppingCart shoppingCart;
+    private Date date;
+    private double totalSale;
+    private double amountDue;
+    private TaxComputation tc;
 
-    public BasicReceipt(ShoppingCart items, Date date) {
+    public BasicReceipt(ShoppingCart shoppingCart, Date date) {
 
-        this.items = items;
+        this.shoppingCart = shoppingCart;
         this.date = date;
-        this.totalSale = items.getTotal();
+        this.totalSale = getTotal();
+    }
 
-        // Read in the config file and set the store parameters
-        try {
-            Scanner scanner = new Scanner(new File("config.dat"));
-            this.storeID = Integer.parseInt(scanner.nextLine());
-            this.storeAddress = scanner.nextLine();
-            this.storePhoneNumber = scanner.nextLine();
-            this.stateCode = scanner.nextLine();
-            scanner.close();
-        } catch(FileNotFoundException e) {
-            System.out.println("Error " + e.toString());
-        }
-
-        // Determine the tax computation object
-        if (this.stateCode.equals("MD")) {
-            this.tc = new MDTaxComputation();
-        } else if (this.stateCode.equals("MA")) {
-            this.tc = new MATaxComputation();
-        } else if (this.stateCode.equals("CA")) {
-            this.tc = new CATaxComputation();
-        } else {
-            this.tc = null;
-        }
+    public void setTaxComputation(TaxComputation tc) {
+        this.tc = tc;
     }
 
     public void printReceipt() {
-        System.out.println("This is my receipt");
+        System.out.println("\nReceipt:\n");
+        System.out.println("Purchased items:");
+        System.out.println(shoppingCart);
+        System.out.println("\nTotal:\n\t" + totalSale);
+        System.out.println("\nAmount Due:\n\t" + amountDue + "\n");
+    }
+
+    private Double getTotal() {
+
+        double sum = 0;
+        for(Item item:shoppingCart.items) {
+            sum += item.price;
+        }
+
+        return sum;
+    }
+
+    public void getAmountDue() {
+
+        double tax = tc.computeTax(shoppingCart, date);
+        amountDue = totalSale + tax;
     }
 }

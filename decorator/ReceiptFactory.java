@@ -1,40 +1,85 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Date;
-import java.util.*;
-import java.lang.reflect.Field;
+import java.util.Scanner;
 
 public class ReceiptFactory {
 
-    private ShoppingCart items;
-    private Date date;
+    private String storeID;
+    private String storeAddress;
+    private String storePhone;
+    private String stateCode;
     private AddOn[] addOns;
-    public Receipt receipt;
 
-    public ReceiptFactory(ShoppingCart items, Date date) throws UnknownAddOnTypeException {
+    public ReceiptFactory() {
 
-        this.items = items;
-        this.date = date;
+        // Read in the config file and set the store parameters
+        try {
+            Scanner scanner = new Scanner(new File("config.dat"));
+            this.storeID = scanner.nextLine();
+            this.storeAddress = scanner.nextLine();
+            this.storePhone = scanner.nextLine();
+            this.stateCode = scanner.nextLine();
+            scanner.close();
+        } catch(FileNotFoundException e) {
+            System.out.println("Error " + e.toString());
+        }
 
-        // Initilalize Receipt
-        this.receipt = new BasicReceipt(items, date);
-
-        // Get AddOns
-        getAddOns(addOns);
-
+        // Get Add Ons
+        getAddOns();
     }
 
-    public Receipt getReceipt() {
+    public Receipt getReceipt(ShoppingCart shoppingCart, Date date) throws UnknownAddOnTypeException, UnknownStateTaxComputationException {
 
-        return this.receipt;
+        // Initialize receipt
+        Receipt receipt = new BasicReceipt(shoppingCart, date);
+
+        // Determine the tax computation object and compute tax
+        if (stateCode.equals("MD")) {
+            ((BasicReceipt)receipt).setTaxComputation(new MDTaxComputation());
+        } else if (stateCode.equals("MA")) {
+            ((BasicReceipt)receipt).setTaxComputation(new MATaxComputation());
+        } else if (stateCode.equals("CA")) {
+            ((BasicReceipt)receipt).setTaxComputation(new CATaxComputation());
+        } else if (stateCode.equals("DE")){
+            ((BasicReceipt)receipt).setTaxComputation(null);
+        } else {
+            throw new UnknownStateTaxComputationException(stateCode);
+        }
+
+        // Determine the amount due for the receipt
+        ((BasicReceipt)receipt).getAmountDue();
+
+        // Iterate through addOns and determine the appropriate order
+        // // Iterate through addOns and determine the appropriate order
+        // for (AddOn a: addOns) {
+
+            // // If it is a greeting, then print it before nominal receipt
+            // if (a instanceof Greeting) {
+            //     receipt = new PreDecorator(a, receipt);
+            // } else {
+            //     if (a instanceof Applies && a.applies(items)) {
+            //         if (a instanceof Rebate || a instanceof Coupon) {
+            //             receipt = new PostDecorator(a, receipt);
+            //         } else {
+            //         throw new UnknownAddOnTypeException();
+            //         }
+            //     }
+            // }
+        // }
+
+        return receipt;
     }
 
-    private void getAddOns(AddOn[] addOns) {
+    private void getAddOns() {
 
-        addOns = new AddOn[5];
+        addOns = new AddOn[6];
         addOns[0] = new MyAddOn0();
-        addOns[1] = new MyAddOn0();
-        addOns[2] = new MyAddOn0();
-        addOns[3] = new MyAddOn0();
-        addOns[4] = new MyAddOn0();
+        addOns[1] = new MyAddOn1();
+        addOns[2] = new MyAddOn2();
+        addOns[3] = new MyAddOn3();
+        addOns[4] = new MyAddOn4();
+        addOns[5] = new MyAddOn5();
     }
 }
 
@@ -42,5 +87,12 @@ class UnknownAddOnTypeException extends Exception {
 
     public UnknownAddOnTypeException() {
         System.out.println("Invalid AddOn type");
+    }
+}
+
+class UnknownStateTaxComputationException extends Exception {
+
+    public UnknownStateTaxComputationException(String stateCode) {
+        System.out.println("Cannot compute tax for state " + stateCode);
     }
 }

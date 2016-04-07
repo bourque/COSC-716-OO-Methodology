@@ -2,27 +2,17 @@ import java.util.ArrayList;
 
 public class ShoppingCart {
 
-    public ArrayList<Item> shoppingCart = new ArrayList<Item>();
+    public ArrayList<Item> items = new ArrayList<Item>();
 
     public void addItem(Item item) {
-        shoppingCart.add(item);
-    }
-
-    public Double getTotal() {
-
-        double sum = 0;
-        for(Item d:shoppingCart) {
-            sum += d.price;
-        }
-
-        return sum;
+        items.add(item);
     }
 
     public String toString() {
 
         StringBuilder sb = new StringBuilder();
-        for (Item pi:shoppingCart) {
-            sb.append(pi + "\n");
+        for (Item item:items) {
+            sb.append(item + "\n");
         }
 
         return sb.toString();

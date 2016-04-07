@@ -5,7 +5,7 @@ public class MDTaxComputation extends TaxComputation {
     public double computeTax(ShoppingCart items, Date date) {
         // calls private method taxHoliday as part of this
         // compute the tax
-        return 0.0;
+        return 1.5;
     }
 
     protected boolean taxHoliday(Date date) {

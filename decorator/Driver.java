@@ -28,10 +28,12 @@ class Driver {
 
         // Print receipt
         try {
-            ReceiptFactory rf = new ReceiptFactory(shoppingCart, date);
-            Receipt receipt = rf.getReceipt();
+            ReceiptFactory rf = new ReceiptFactory();
+            Receipt receipt = rf.getReceipt(shoppingCart, date);
             receipt.printReceipt();
-        } catch (UnknownAddOnTypeException e){
+        } catch (UnknownAddOnTypeException e) {
+            System.out.println(e);
+        } catch (UnknownStateTaxComputationException e) {
             System.out.println(e);
         }
     }
