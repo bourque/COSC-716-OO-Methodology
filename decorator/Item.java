@@ -1,10 +1,10 @@
 public class Item {
 
     private String name;
-    protected double price;
+    protected float price;
     protected String category;
 
-    public Item(String name, double price, String category){
+    public Item(String name, float price, String category){
         this.name = name;
         this.price = price;
         this.category = category;

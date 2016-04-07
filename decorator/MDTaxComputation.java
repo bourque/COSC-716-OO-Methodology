@@ -2,10 +2,10 @@ import java.util.Calendar;
 
 public class MDTaxComputation extends TaxComputation {
 
-    public double computeTax(ShoppingCart shoppingCart, Calendar date) {
+    public float computeTax(ShoppingCart shoppingCart, Calendar date) {
 
-        double MDTax = 0.06;
-        double tax = 0.0;
+        float MDTax = 0.06f;
+        float tax = 0.0f;
 
         // Determine if the date qualifies as a tax holiday
         boolean holiday = taxHoliday(date);

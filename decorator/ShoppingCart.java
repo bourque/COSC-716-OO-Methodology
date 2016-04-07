@@ -8,9 +8,9 @@ public class ShoppingCart {
         items.add(item);
     }
 
-    public Double getTotal() {
+    public float getTotal() {
 
-        double sum = 0;
+        float sum = 0;
         for(Item item:items) {
             sum += item.price;
         }

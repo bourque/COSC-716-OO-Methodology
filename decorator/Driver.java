@@ -64,7 +64,7 @@ class Driver {
                 String next = scanner.nextLine();
                 String[] line = next.split(",");
                 String name = line[0];
-                Double price = Double.parseDouble(line[1]);
+                float price = Float.parseFloat(line[1]);
                 String category = line[2];
 
                 // Add item to list of available items

@@ -4,8 +4,8 @@ public class BasicReceipt implements Receipt {
 
     private ShoppingCart shoppingCart;
     private Calendar date;
-    private double totalSale;
-    private double amountDue;
+    private float totalSale;
+    private float amountDue;
     private TaxComputation tc;
 
     public BasicReceipt(ShoppingCart shoppingCart, Calendar date) {
@@ -29,7 +29,7 @@ public class BasicReceipt implements Receipt {
 
     public void getAmountDue() {
 
-        double tax = tc.computeTax(shoppingCart, date);
+        float tax = tc.computeTax(shoppingCart, date);
         amountDue = totalSale + tax;
     }
 }

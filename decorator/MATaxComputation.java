@@ -2,10 +2,10 @@ import java.util.Calendar;
 
 public class MATaxComputation extends TaxComputation {
 
-    public double computeTax(ShoppingCart items, Calendar date) {
+    public float computeTax(ShoppingCart items, Calendar date) {
         // calls private method taxHoliday as part of this
         // compute the tax
-        return 1.5;
+        return 1.5f;
     }
 
     protected boolean taxHoliday(Calendar date) {
