@@ -13,7 +13,7 @@ class Driver {
 
         // Get the date
         Calendar date = Calendar.getInstance();
-        date.set(2016, Calendar.APRIL, 7);
+        date.set(2016, Calendar.AUGUST, 13);
 
         // Get the list of available items
         ArrayList<Item> availableItems = getAvailableItems();

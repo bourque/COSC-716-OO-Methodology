@@ -1,16 +1,54 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MATaxComputation extends TaxComputation {
 
-    public float computeTax(ShoppingCart items, Calendar date) {
-        // calls private method taxHoliday as part of this
-        // compute the tax
-        return 1.5f;
+    public float computeTax(ShoppingCart shoppingCart, Calendar date) {
+
+        float MATax = 0.0625f;
+        float tax = 0.0f;
+
+        // Build list of tax free categoiries
+        ArrayList<String> nonTaxableCategories = new ArrayList<String>();
+        nonTaxableCategories.add("school");
+        nonTaxableCategories.add("computer");
+        nonTaxableCategories.add("sports");
+        nonTaxableCategories.add("health");
+        nonTaxableCategories.add("beauty");
+
+        // Determine if the date qualifies as a tax holiday
+        boolean holiday = taxHoliday(date);
+
+        // If it is a tax holiday, then only tax non-computer items
+        if (holiday == true) {
+            ShoppingCart taxableItems = new ShoppingCart();
+            for (Item item : shoppingCart.items) {
+                if (!nonTaxableCategories.contains(item.category)) {
+                    taxableItems.addItem(item);
+                }
+            }
+            tax = taxableItems.getTotal() * MATax;
+
+        // If it is not a tax holiday, then just tax the total
+        } else {
+            tax = shoppingCart.getTotal() * MATax;
+        }
+
+        return tax;
     }
 
+
     protected boolean taxHoliday(Calendar date) {
-        // return true if date of receipt within the state's tax free holiday
-        // else return false
-        return false;
+
+        // Massachusetts tax holiday is on August 13th and 14th
+        int holidayMonth = Calendar.AUGUST;
+        int holidayDay1 = 13;
+        int holidayDay2 = 14;
+
+        if (date.get(Calendar.MONTH) == holidayMonth && date.get(Calendar.DAY_OF_MONTH) == holidayDay1 || date.get(Calendar.DAY_OF_MONTH) == holidayDay2) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
