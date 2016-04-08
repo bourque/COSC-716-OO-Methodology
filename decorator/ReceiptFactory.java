@@ -74,11 +74,11 @@ public class ReceiptFactory {
 
         addOns = new AddOn[6];
         addOns[0] = new LimitedOfferGreeting();
-        addOns[1] = new MyAddOn1();
+        addOns[1] = new RebateAppleMacBook();
         addOns[2] = new Coupon10PercentNextPurchase();
         addOns[3] = new CouponFreeComputerItemUnder50();
         addOns[4] = new NormalGreeting();
-        addOns[5] = new MyAddOn5();
+        addOns[5] = new RebateWhirlpoolRefrigerator();
     }
 }
 

@@ -46,7 +46,7 @@ class Driver {
         }
 
         System.out.println("\nPlease select the item(s) you wish to purchase");
-        System.out.println("press 'q' when finished");
+        System.out.println("Enter 'q' when finished");
     }
 
     private static ArrayList<Item> getAvailableItems() {

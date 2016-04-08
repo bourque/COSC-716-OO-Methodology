@@ -1,6 +1,6 @@
 public class Item {
 
-    private String name;
+    protected String name;
     protected float price;
     protected String category;
 
