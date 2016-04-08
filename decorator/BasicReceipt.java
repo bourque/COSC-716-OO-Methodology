@@ -20,8 +20,7 @@ public class BasicReceipt implements Receipt {
     }
 
     public void printReceipt() {
-        System.out.println("\nReceipt:\n");
-        System.out.println("Purchased items:");
+        System.out.println("\nPurchased items:");
         System.out.println(shoppingCart);
         System.out.println("\nTotal:\n\t" + totalSale);
         System.out.println("\nAmount Due:\n\t" + amountDue + "\n");

@@ -51,22 +51,21 @@ public class ReceiptFactory {
         ((BasicReceipt)receipt).getAmountDue();
 
         // Iterate through addOns and determine the appropriate order
-        // // Iterate through addOns and determine the appropriate order
-        // for (AddOn a: addOns) {
+        for (AddOn a: addOns) {
 
-            // // If it is a greeting, then print it before nominal receipt
-            // if (a instanceof Greeting) {
-            //     receipt = new PreDecorator(a, receipt);
-            // } else {
-            //     if (a instanceof Applies && a.applies(items)) {
-            //         if (a instanceof Rebate || a instanceof Coupon) {
-            //             receipt = new PostDecorator(a, receipt);
-            //         } else {
-            //         throw new UnknownAddOnTypeException();
-            //         }
-            //     }
-            // }
-        // }
+            // If it is a greeting, then print it before nominal receipt
+            if (a instanceof Greeting) {
+                receipt = new PreDecorator(a, receipt);
+            } else {
+                if (a instanceof Applies && ((Applies)a).applies(shoppingCart)) {
+                    if (a instanceof Rebate || a instanceof Coupon) {
+                        receipt = new PostDecorator(a, receipt);
+                    } else {
+                    throw new UnknownAddOnTypeException();
+                    }
+                }
+            }
+        }
 
         return receipt;
     }
@@ -74,11 +73,11 @@ public class ReceiptFactory {
     private void getAddOns() {
 
         addOns = new AddOn[6];
-        addOns[0] = new MyAddOn0();
+        addOns[0] = new LimitedOfferGreeting();
         addOns[1] = new MyAddOn1();
-        addOns[2] = new MyAddOn2();
-        addOns[3] = new MyAddOn3();
-        addOns[4] = new MyAddOn4();
+        addOns[2] = new Coupon10PercentNextPurchase();
+        addOns[3] = new CouponFreeComputerItemUnder50();
+        addOns[4] = new NormalGreeting();
         addOns[5] = new MyAddOn5();
     }
 }

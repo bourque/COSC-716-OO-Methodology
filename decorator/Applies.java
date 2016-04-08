@@ -1,3 +1,3 @@
 public interface Applies {
-    public boolean applies(ShoppingCart items);
+    public boolean applies(ShoppingCart shoppingCart);
 }

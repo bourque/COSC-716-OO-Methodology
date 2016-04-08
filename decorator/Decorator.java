@@ -2,11 +2,11 @@ public abstract class Decorator implements Receipt {
 
     private Receipt trailer;
 
-    public Decorator(Receipt receipt) {
+    public Decorator(AddOn addOn, Receipt receipt) {
         trailer = receipt;
     }
 
-    private void callTrailer() {
+    protected void callTrailer() {
         trailer.printReceipt();
     }
 

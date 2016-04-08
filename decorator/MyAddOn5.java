@@ -4,7 +4,7 @@ public class MyAddOn5 implements AddOn, Applies, Rebate {
         return "This is my other rebate";
     }
 
-    public boolean applies(ShoppingCart items) {
+    public boolean applies(ShoppingCart shoppingCart) {
         return true;
     }
 }

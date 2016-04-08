@@ -3,7 +3,7 @@ public class PreDecorator extends Decorator {
     private AddOn addOn;
 
     public PreDecorator(AddOn addOn, Receipt receipt) {
-        super(receipt);
+        super(addOn, receipt);
         this.addOn = addOn;
     }
 
