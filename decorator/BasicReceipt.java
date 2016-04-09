@@ -49,7 +49,7 @@ public class BasicReceipt implements Receipt {
         System.out.println("\nAmount Due:\n\t" + amountDue + "\n");
     }
 
-    public void getAmountDue() {
+    protected void getAmountDue() {
 
         float tax = tc.computeTax(shoppingCart, date);
         amountDue = totalSale + tax;
