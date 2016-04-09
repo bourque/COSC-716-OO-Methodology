@@ -32,7 +32,7 @@ public class ReceiptFactory {
     public Receipt getReceipt(ShoppingCart shoppingCart, Calendar date) throws UnknownAddOnTypeException, UnknownStateTaxComputationException {
 
         // Initialize receipt
-        Receipt receipt = new BasicReceipt(shoppingCart, date);
+        Receipt receipt = new BasicReceipt(shoppingCart, date, storeID, storeAddress, storePhone, stateCode);
 
         // Determine the tax computation object and compute tax
         if (stateCode.equals("MD")) {

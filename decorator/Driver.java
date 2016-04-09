@@ -119,9 +119,7 @@ class Driver {
             System.out.println("Error " + e.toString());
         }
 
-        // Print the finalized cart
-        System.out.println("\nYour shopping cart includes:");
-        System.out.println(shoppingCart);
+        System.out.println("");
 
         return shoppingCart;
     }
