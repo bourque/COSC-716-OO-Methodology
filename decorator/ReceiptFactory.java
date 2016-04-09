@@ -11,6 +11,11 @@ public class ReceiptFactory {
     private String stateCode;
     private AddOn[] addOns;
 
+
+    /**
+     * Constructor method.  Reads in the config file with store information, and downloads
+     * The addOns.
+     */
     public ReceiptFactory() {
 
         // Read in the config file and set the store parameters
@@ -29,6 +34,16 @@ public class ReceiptFactory {
         getAddOns();
     }
 
+
+    /**
+     * Build and return a Receipt object.  This entails computing the tax, and decorating the receipt
+     * with the appropriate addOns.
+     * @param shoppingCart - The shoppingCart of items that the user is purchasing
+     * @param date - The date of sale
+     * @return receipt - The receipt object with attached addOns and computed tax
+     * @throws UnknownAddOnTypeException - In case of unimplemented addOn types
+     * @throws UnknownStateTaxComputationException - In case of states with unimplemented tax calculation
+     */
     public Receipt getReceipt(ShoppingCart shoppingCart, Calendar date) throws UnknownAddOnTypeException, UnknownStateTaxComputationException {
 
         // Initialize receipt
@@ -70,6 +85,10 @@ public class ReceiptFactory {
         return receipt;
     }
 
+
+    /**
+     * Get the various AddOns and put them in a list.
+     */
     private void getAddOns() {
 
         addOns = new AddOn[6];
@@ -82,12 +101,14 @@ public class ReceiptFactory {
     }
 }
 
+
 class UnknownAddOnTypeException extends Exception {
 
     public UnknownAddOnTypeException() {
         System.out.println("Invalid AddOn type");
     }
 }
+
 
 class UnknownStateTaxComputationException extends Exception {
 

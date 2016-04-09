@@ -2,6 +2,14 @@ import java.util.Calendar;
 
 public class MDTaxComputation extends TaxComputation {
 
+
+    /**
+     * Compute the tax on the given shoppingCart.  The given date determines
+     * if it is a tax holiday.
+     * @param shoppingCart - The shoppingCart of items that the user is purchasing
+     * @param date - The date of sale
+     * @return The amount of tax to be applied to the shoppingCart
+     */
     public float computeTax(ShoppingCart shoppingCart, Calendar date) {
 
         float MDTax = 0.06f;
@@ -28,6 +36,11 @@ public class MDTaxComputation extends TaxComputation {
         return tax;
     }
 
+
+    /**
+     * Determine if the given date qualifies as a tax holiday
+     * @param date - The date of sale
+     */
     protected boolean taxHoliday(Calendar date) {
 
         // Assume Maryland's tax holiday is on April 7th

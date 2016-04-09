@@ -1,5 +1,10 @@
 public class CouponFreeComputerItemUnder50 implements AddOn, Applies, Coupon {
 
+
+    /**
+     * Return the Coupon description
+     * @return The coupon description
+     */
     public String getLines() {
         StringBuilder sb = new StringBuilder();
         sb.append("Congratulations! Winner is YOU!\n");
@@ -10,6 +15,12 @@ public class CouponFreeComputerItemUnder50 implements AddOn, Applies, Coupon {
         return sb.toString();
     }
 
+
+    /**
+     * Determine if the coupon applies the items in the given shoppingCart
+     * @param shoppingCart - The shoppingCart of items that the user is purchasing
+     * @return true if the coupon applies, false if it does not
+     */
     public boolean applies(ShoppingCart shoppingCart) {
 
         // Coupon applies if customer bought over $500 of computer items

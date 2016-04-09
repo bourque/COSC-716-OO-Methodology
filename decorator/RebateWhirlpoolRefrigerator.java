@@ -1,5 +1,10 @@
 public class RebateWhirlpoolRefrigerator implements AddOn, Applies, Rebate {
 
+
+    /**
+     * Return the rebate description
+     * @return The rebate description
+     */
     public String getLines() {
 
         StringBuilder sb = new StringBuilder();
@@ -12,9 +17,15 @@ public class RebateWhirlpoolRefrigerator implements AddOn, Applies, Rebate {
         return sb.toString();
     }
 
+
+    /**
+     * Determine if the rebate applies to items in the given shoppingCart
+     * @param shoppingCart - The shoppingCart of items that the user is purchasing
+     * @return true if the rebate applies, false if it does not
+     */
     public boolean applies(ShoppingCart shoppingCart) {
 
-        // Coupon applies if customer bought an item named "Apple MacBook"
+        // Coupon applies if customer bought an item named "Whirlpool Refrigerator"
         for (Item item : shoppingCart.items) {
             if (item.name.equals("Whirlpool Refrigerator")) {
                 return true;

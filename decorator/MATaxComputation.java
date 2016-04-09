@@ -3,6 +3,14 @@ import java.util.Calendar;
 
 public class MATaxComputation extends TaxComputation {
 
+
+    /**
+     * Compute the tax on the given shoppingCart.  The given date determines
+     * if it is a tax holiday.
+     * @param shoppingCart - The shoppingCart of items that the user is purchasing
+     * @param date - The date of sale
+     * @return The amount of tax to be applied to the shoppingCart
+     */
     public float computeTax(ShoppingCart shoppingCart, Calendar date) {
 
         float MATax = 0.0625f;
@@ -38,6 +46,10 @@ public class MATaxComputation extends TaxComputation {
     }
 
 
+    /**
+     * Determine if the given date qualifies as a tax holiday
+     * @param date - The date of sale
+     */
     protected boolean taxHoliday(Calendar date) {
 
         // Massachusetts tax holiday is on August 13th and 14th

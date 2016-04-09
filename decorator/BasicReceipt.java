@@ -12,6 +12,10 @@ public class BasicReceipt implements Receipt {
     private float amountDue;
     private TaxComputation tc;
 
+
+    /**
+     * Constructor method
+     */
     public BasicReceipt(ShoppingCart shoppingCart, Calendar date, String storeID, String storeAddress, String storePhone, String stateCode) {
 
         this.shoppingCart = shoppingCart;
@@ -23,10 +27,19 @@ public class BasicReceipt implements Receipt {
         this.totalSale = shoppingCart.getTotal();
     }
 
+
+    /**
+     * Set the given TaxComputation object
+     * @param tc - The TaxComputation object to set
+     */
     public void setTaxComputation(TaxComputation tc) {
         this.tc = tc;
     }
 
+
+    /**
+     * Print the receipt
+     */
     public void printReceipt() {
 
         // Print store info
@@ -49,6 +62,10 @@ public class BasicReceipt implements Receipt {
         System.out.println("\nAmount Due:\n\t" + amountDue + "\n");
     }
 
+
+    /**
+     * Perform the tax computation and determine the total amount due
+     */
     protected void getAmountDue() {
 
         float tax = tc.computeTax(shoppingCart, date);

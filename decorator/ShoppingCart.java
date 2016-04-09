@@ -4,10 +4,20 @@ public class ShoppingCart {
 
     public ArrayList<Item> items = new ArrayList<Item>();
 
+
+    /**
+     * Add an item to the shopping cart
+     * @param item - The item to add
+     */
     public void addItem(Item item) {
         items.add(item);
     }
 
+
+    /**
+     * Return the sum of the items in the shopping cart
+     * @return sum - The sum of the items
+     */
     public float getTotal() {
 
         float sum = 0;
@@ -18,6 +28,10 @@ public class ShoppingCart {
         return sum;
     }
 
+
+    /**
+     * Override the toString method to custom print the shopping cart
+     */
     public String toString() {
 
         StringBuilder sb = new StringBuilder();
