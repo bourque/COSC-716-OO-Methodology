@@ -91,9 +91,10 @@ class Driver {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String line = br.readLine();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            df.setLenient(false);
             try {
-                date = dateFormat.parse(line);
+                date = df.parse(line);
             } catch (ParseException e) {
                 System.out.println("Error " + e.toString());
                 System.exit(1);
