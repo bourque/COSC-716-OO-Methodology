@@ -3,8 +3,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 class Driver {
@@ -12,8 +15,7 @@ class Driver {
     public static void main(String[] args) {
 
         // Get the date
-        Calendar date = Calendar.getInstance();
-        date.set(2016, Calendar.AUGUST, 13);
+        Calendar date = getDate();
 
         // Get the list of available items
         ArrayList<Item> availableItems = getAvailableItems();
@@ -75,9 +77,37 @@ class Driver {
 
         } catch(FileNotFoundException e) {
             System.out.println("Error " + e.toString());
+            System.exit(1);
         }
 
         return availableItems;
+    }
+
+    private static Calendar getDate() {
+
+        Date date = null;
+        System.out.println("\nPlease enter the date in YYYY-MM-DD format:");
+
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String line = br.readLine();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                date = dateFormat.parse(line);
+            } catch (ParseException e) {
+                System.out.println("Error " + e.toString());
+                System.exit(1);
+            }
+        } catch(IOException e) {
+            System.out.println("Error " + e.toString());
+            System.exit(1);
+        }
+
+        // Convert date to calendar since date is mostly depricated
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        return calendar;
     }
 
     private static ShoppingCart getPurchasedItems(ArrayList<Item> availableItems) {
@@ -117,6 +147,7 @@ class Driver {
             }
         } catch(IOException e) {
             System.out.println("Error " + e.toString());
+            System.exit(1);
         }
 
         System.out.println("");
