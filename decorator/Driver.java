@@ -1,3 +1,9 @@
+/*
+Matthew Bourque
+4/9/16
+Homework Assignment 5
+*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,8 +16,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
+
 class Driver {
 
+    /**
+     * The main driver
+     */
     public static void main(String[] args) {
 
         // Get the date
@@ -26,7 +36,7 @@ class Driver {
         // Get user selection
         ShoppingCart shoppingCart = getPurchasedItems(availableItems);
 
-        // Print receipt
+        // Generate and print receipt
         try {
             ReceiptFactory rf = new ReceiptFactory();
             Receipt receipt = rf.getReceipt(shoppingCart, date);
@@ -38,6 +48,11 @@ class Driver {
         }
     }
 
+
+    /**
+     * Display the available items to purchase to the user
+     * @param availableItems - The list of available items
+     */
     private static void displayAvailableItems(ArrayList<Item> availableItems) {
 
         System.out.println("\nAvailable Products:");
@@ -51,6 +66,12 @@ class Driver {
         System.out.println("Enter 'q' when finished");
     }
 
+
+    /**
+     * Read in the available items to puchase from a text file
+     * and store them in a list
+     * @return availableItems - The list of available items
+     */
     private static ArrayList<Item> getAvailableItems() {
 
         // Initialize empty list to hold available items
@@ -83,6 +104,11 @@ class Driver {
         return availableItems;
     }
 
+
+    /**
+     * Get the date from the user
+     * @return calendar - The user supplied date (as a Calendar object)
+     */
     private static Calendar getDate() {
 
         Date date = null;
@@ -111,6 +137,13 @@ class Driver {
         return calendar;
     }
 
+
+    /**
+     * Get the items that the user purchased
+     * @param availableItems - The list of available items to purchase
+     * @return shoppingCart - A shoppingCart object that holds all of the items that
+     *                        the user has purchased
+     */
     private static ShoppingCart getPurchasedItems(ArrayList<Item> availableItems) {
 
         ShoppingCart shoppingCart = new ShoppingCart();
