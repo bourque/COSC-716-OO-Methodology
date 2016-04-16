@@ -4,8 +4,10 @@
 
 public class Aggregator {
 
-    public Menu getMenu();
-    public Tabs getTabs();
+    public Menu getMenu() {
+        return new Menu();
+    }
+    // public Tabs getTabs();
 
     // NO addMenu!
 }

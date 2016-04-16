@@ -4,8 +4,17 @@
 
 public class SystemInterface {
 
-    public SystemInterface() {
+    public Invoker invoker;
 
+    public SystemInterface() {
+        this.invoker = new Invoker();
+    }
+
+    public String getFullMenu() {
+
+        Menu menu = invoker.getMenu();
+        System.out.println(menu);
+        return "This is the menu";
     }
 
     // public static String getFullMenu(){}

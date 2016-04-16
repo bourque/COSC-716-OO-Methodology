@@ -1,7 +1,12 @@
 public class CMDGetMenu implements Command {
 
+    Aggregator agg;
 
-    public Menu execute () {
+    public CMDGetMenu(Aggregator agg) {
+        this.agg = agg;
+    }
 
+    public Menu execute() {
+        return agg.getMenu();
     }
 }

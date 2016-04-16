@@ -8,7 +8,9 @@ public class UserInterface {
 
     public void runInterface() {
 
-        // Drive the program
-        System.out.println("here");
+        // Print out options for the user
+
+        String fullMenu = si.getFullMenu();
+        System.out.println(fullMenu);
     }
 }
