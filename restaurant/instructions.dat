@@ -1,0 +1,38 @@
+seating of customers (queue)
+Queue of food orders
+order of seating based on time, availability, group size (strategy pattern)
+fluxation of prices of items based on quanitiy available, etc.
+observers - objects that want to be notified -- trigger notification
+split checks individually or by table (composite)
+
+
+public class Invoker {
+    private Aggregator agg;
+
+    public Menu getMenu(){
+        return (Menu) new CMDGetMenu(agg).execute();
+    }
+}
+
+
+public class CMDGetMenu implements CommandInterface {
+
+    private Aggregator agg;
+
+    public CMDGetMenu(agg) {
+        this.agg = agg;
+    }
+
+    public Object execute() {
+        return agg.getMenu().clone();
+    }
+}
+
+//change of prices based on availablility, perishability
+//queue of seating availabilty (strategy, observer)
+//orders adjusted on the fly by manager
+//options for ordered items
+//substituted items (builder)
+//daily special based on inventory (builder)
+//(composite) one or more orders treated differently
+//(observer) take action based on
