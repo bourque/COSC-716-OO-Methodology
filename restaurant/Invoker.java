@@ -12,7 +12,5 @@ public class Invoker {
         return new CMDGetMenu(agg).execute();
     }
 
-    // public void SaveCMDObject() {
-
-    // }
+    // public void SaveCMDObject(){}
 }
