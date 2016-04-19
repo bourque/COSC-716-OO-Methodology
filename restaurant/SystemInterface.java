@@ -4,22 +4,28 @@
 
 public class SystemInterface {
 
-    public Invoker invoker;
+    public static Invoker invoker = new Invoker();
 
-    public SystemInterface() {
-        this.invoker = new Invoker();
-    }
+    public static String getFullMenu() {
 
-    public String getFullMenu() {
-
+        // Get the menu
         Menu menu = invoker.getMenu();
-        System.out.println(menu);
-        return "This is the menu";
+
+        // Convert to a string
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nMenu:\n");
+        sb.append("\tName\tCategory\tHeart Healthy\tPrice\n");
+
+        for (MenuItem item:menu.menu) {
+            sb.append("\t" + item.itemName);
+            sb.append("\t" + item.category);
+            sb.append("\t" + item.heartHealthy);
+            sb.append("\t" + item.price + "\n");
+        }
+
+        return sb.toString();
     }
 
-    // public static String getFullMenu(){}
-    // public static String getDessertMenu(){}
-    // public static String getWhateverMenu(){}
     // public void setMenuFormat(){}
 
 }

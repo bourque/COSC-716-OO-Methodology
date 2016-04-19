@@ -4,11 +4,11 @@ import java.io.IOException;
 
 public class UserInterface {
 
-    SystemInterface si;
+    // SystemInterface si;
 
-    public UserInterface() {
-        this.si = new SystemInterface();
-    }
+    // public UserInterface() {
+    //     this.si = new SystemInterface();
+    // }
 
     public void runInterface() {
 
@@ -25,7 +25,7 @@ public class UserInterface {
 
                 switch(option) {
                     case "1":
-                        String fullMenu = si.getFullMenu();
+                        String fullMenu = SystemInterface.getFullMenu();
                         System.out.println(fullMenu);
                         break;
                     case "2":
