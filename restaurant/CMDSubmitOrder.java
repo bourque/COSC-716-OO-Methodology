@@ -10,6 +10,7 @@ public class CMDSubmitOrder implements Command {
 
     public String execute() {
 
+        // Add order to Orders
         Orders orders = agg.getOrders();
         orders.addOrder(orderedItem);
 

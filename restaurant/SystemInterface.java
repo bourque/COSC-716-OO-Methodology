@@ -14,16 +14,28 @@ public class SystemInterface {
         // Convert to a string
         StringBuilder sb = new StringBuilder();
         sb.append("\nMenu:\n");
-        sb.append("\tName:\t\tPrice\n");
-
         for (MenuItem item:menu.menu) {
-            sb.append("\t" + item.name + ": ");
-            sb.append(item.price + "\n");
+            sb.append("\t" + item.name + ": " + item.price + "\n");
         }
 
         return sb.toString();
     }
 
+    public static String displayTab() {
+
+        // Get the tab
+        Tab tab = invoker.displayTab();
+
+        // Convert to string
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nTab:\n");
+        for (OrderItem item:tab.orders.orders) {
+            sb.append("\t" + item.name + ": " + item.price + "\n");
+        }
+        sb.append("\n\tTotal: " + tab.total + "\n");
+
+        return sb.toString();
+    }
 
     public static String submitOrder() {
 
@@ -53,5 +65,4 @@ public class SystemInterface {
 
         return orderConfirmation;
     }
-
 }

@@ -25,7 +25,7 @@ public class UserInterface {
                         System.out.println(SystemInterface.submitOrder());
                         break;
                     case "3":
-                        System.out.println("here3");
+                        System.out.println(SystemInterface.displayTab());
                         break;
                     default:
                         System.out.println("Invalid selection. Please try again.");

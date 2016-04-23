@@ -12,6 +12,10 @@ public class Invoker {
         return new CMDDisplayMenu(agg).execute();
     }
 
+    public Tab displayTab() {
+        return new CMDDisplayTab(agg).execute();
+    }
+
     public String submitOrder(OrderItem orderedItem) {
         return new CMDSubmitOrder(agg, orderedItem).execute();
     }

@@ -2,6 +2,7 @@ public class Aggregator {
 
     Menu menu;
     Orders orders;
+    Tab tab;
 
     public Aggregator() {
         menu = new Menu();
@@ -14,5 +15,10 @@ public class Aggregator {
 
     public Orders getOrders() {
         return orders;
+    }
+
+    public Tab getTab() {
+        Tab tab = new Tab(orders);
+        return tab;
     }
 }
