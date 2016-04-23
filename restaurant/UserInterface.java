@@ -29,7 +29,7 @@ public class UserInterface {
                         System.out.println(fullMenu);
                         break;
                     case "2":
-                        System.out.println("here2");
+                        SystemInterface.placeOrder();
                         break;
                     case "3":
                         System.out.println("here3");
