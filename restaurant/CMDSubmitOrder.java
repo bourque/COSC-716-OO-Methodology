@@ -1,15 +1,18 @@
 public class CMDSubmitOrder implements Command {
 
     Aggregator agg;
-    MenuItem orderedItem;
+    OrderItem orderedItem;
 
-    public CMDSubmitOrder(Aggregator agg, MenuItem orderedItem) {
+    public CMDSubmitOrder(Aggregator agg, OrderItem orderedItem) {
         this.agg = agg;
         this.orderedItem = orderedItem;
     }
 
     public String execute() {
-        // submit order
-        return "Confirmed";
+
+        Orders orders = agg.getOrders();
+        orders.addOrder(orderedItem);
+
+        return "Order confirmed: " + orderedItem.name + ": " + orderedItem.price;
     }
 }

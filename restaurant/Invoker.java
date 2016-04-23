@@ -12,7 +12,7 @@ public class Invoker {
         return new CMDDisplayMenu(agg).execute();
     }
 
-    public String submitOrder(MenuItem orderedItem) {
+    public String submitOrder(OrderItem orderedItem) {
         return new CMDSubmitOrder(agg, orderedItem).execute();
     }
 }

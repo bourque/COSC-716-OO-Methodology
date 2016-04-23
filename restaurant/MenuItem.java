@@ -5,7 +5,7 @@ public class MenuItem {
 
     /**
      * Constructor method
-     * @param itemName - the name of the menu item
+     * @param name - the name of the menu item
      * @param price - the price of the menu item
      */
     public MenuItem(String name, double price){
@@ -24,7 +24,7 @@ public class MenuItem {
 
     /**
      * Return the menu item's name
-     * @return itemName - the name of the menu item
+     * @return name - the name of the menu item
      */
     public String getName(){
         return this.name;
