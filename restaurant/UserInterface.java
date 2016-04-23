@@ -4,12 +4,6 @@ import java.io.IOException;
 
 public class UserInterface {
 
-    // SystemInterface si;
-
-    // public UserInterface() {
-    //     this.si = new SystemInterface();
-    // }
-
     public void runInterface() {
 
         // Print out options for the user
@@ -25,17 +19,14 @@ public class UserInterface {
 
                 switch(option) {
                     case "1":
-                        String fullMenu = SystemInterface.getFullMenu();
-                        System.out.println(fullMenu);
+                        String menu = SystemInterface.displayMenu();
+                        System.out.println(menu);
                         break;
                     case "2":
                         SystemInterface.placeOrder();
                         break;
                     case "3":
                         System.out.println("here3");
-                        break;
-                    case "4":
-                        System.out.println("here4");
                         break;
                     default:
                         System.out.println("Invalid selection. Please try again.");
@@ -55,10 +46,9 @@ public class UserInterface {
     private void displayOptions() {
 
         System.out.println("\nMain Menu:\n");
-        System.out.println("\t1: Display Full Menu");
-        System.out.println("\t2: Display Specific Menu");
-        System.out.println("\t3: Place Order");
-        System.out.println("\t4: Get Tab");
+        System.out.println("\t1: Display Menu");
+        System.out.println("\t2: Submit Order");
+        System.out.println("\t3: Display Tab");
         System.out.println("\tEnter q to quit\n");
     }
 }

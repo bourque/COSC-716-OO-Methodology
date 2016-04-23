@@ -8,9 +8,9 @@ public class Invoker {
         this.agg = new Aggregator();
     }
 
-    public Menu getMenu() {
-        return new CMDGetMenu(agg).execute();
+    public Menu DisplayMenu() {
+        return new CMDDisplayMenu(agg).execute();
     }
 
-    // public void SaveCMDObject(){}
+
 }

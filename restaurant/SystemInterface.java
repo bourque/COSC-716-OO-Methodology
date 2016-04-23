@@ -6,10 +6,10 @@ public class SystemInterface {
 
     public static Invoker invoker = new Invoker();
 
-    public static String getFullMenu() {
+    public static String DisplayMenu() {
 
         // Get the menu
-        Menu menu = invoker.getMenu();
+        Menu menu = invoker.displayMenu();
 
         // Convert to a string
         StringBuilder sb = new StringBuilder();
