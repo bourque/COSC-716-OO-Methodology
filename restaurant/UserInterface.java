@@ -19,11 +19,10 @@ public class UserInterface {
 
                 switch(option) {
                     case "1":
-                        String menu = SystemInterface.displayMenu();
-                        System.out.println(menu);
+                        System.out.println(SystemInterface.displayMenu());
                         break;
                     case "2":
-                        SystemInterface.placeOrder();
+                        System.out.println(SystemInterface.submitOrder());
                         break;
                     case "3":
                         System.out.println("here3");

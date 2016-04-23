@@ -1,6 +1,6 @@
 public class MenuItem {
 
-    public String itemName;
+    public String name;
     public double price;
 
     /**
@@ -8,9 +8,9 @@ public class MenuItem {
      * @param itemName - the name of the menu item
      * @param price - the price of the menu item
      */
-    public MenuItem(String itemName, double price){
+    public MenuItem(String name, double price){
 
-        this.itemName = itemName;
+        this.name = name;
         this.price = price;
     }
 
@@ -27,6 +27,6 @@ public class MenuItem {
      * @return itemName - the name of the menu item
      */
     public String getName(){
-        return this.itemName;
+        return this.name;
     }
 }
