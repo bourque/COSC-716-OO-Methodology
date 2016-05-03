@@ -17,16 +17,16 @@ public class CMDDisplaySpecials implements Command {
         dailyDirector.build();
         Special todaySpecial = dailyDirector.getSpecial();
 
-        // // Build this week's special
-        // SpecialBuilder wsb = new WeeklySpecialBuilder(inventory);
-        // Director weeklyDirector = new Director(wsb);
-        // weeklyDirector.build();
-        // Special weekSpecial = weeklyDirector.getSpecial();
+        // Build this week's special
+        SpecialBuilder wsb = new WeeklySpecialBuilder(inventory);
+        Director weeklyDirector = new Director(wsb);
+        weeklyDirector.build();
+        Special weekSpecial = weeklyDirector.getSpecial();
 
         // Put specials into Specials object
         Specials specials = new Specials();
         specials.addSpecial(todaySpecial);
-        // specials.addSpecial(weekSpecial);
+        specials.addSpecial(weekSpecial);
 
         return specials;
     }
