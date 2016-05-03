@@ -3,10 +3,16 @@ public class Aggregator {
     Menu menu;
     Orders orders;
     Tab tab;
+    Inventory inventory;
 
     public Aggregator() {
-        menu = new Menu();
         orders = new Orders();
+        inventory = new Inventory();
+        menu = new Menu(inventory);
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
     public Menu getMenu() {

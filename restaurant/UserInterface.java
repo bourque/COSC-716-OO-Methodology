@@ -22,9 +22,12 @@ public class UserInterface {
                         System.out.println(SystemInterface.displayMenu());
                         break;
                     case "2":
-                        System.out.println(SystemInterface.submitOrder());
+                        System.out.println(SystemInterface.displaySpecials());
                         break;
                     case "3":
+                        System.out.println(SystemInterface.submitOrder());
+                        break;
+                    case "4":
                         System.out.println(SystemInterface.displayTab());
                         break;
                     default:
@@ -46,8 +49,9 @@ public class UserInterface {
 
         System.out.println("\nMain Menu:\n");
         System.out.println("\t1: Display Menu");
-        System.out.println("\t2: Submit Order");
-        System.out.println("\t3: Display Tab");
+        System.out.println("\t2: Display Specials");
+        System.out.println("\t3: Submit Order");
+        System.out.println("\t4: Display Tab");
         System.out.println("\tEnter q to quit\n");
     }
 }

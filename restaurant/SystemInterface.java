@@ -21,6 +21,20 @@ public class SystemInterface {
         return sb.toString();
     }
 
+    public static String displaySpecials() {
+
+        // Get the specials
+        Specials specials = invoker.displaySpecials();
+
+        // Convert to a string
+        for (Special special:specials.specials) {
+            System.out.println(special.main + ", " + special.vegetable + ", " + special.side);
+        }
+
+        return "It worked";
+
+    }
+
     public static String displayTab() {
 
         // Get the tab
