@@ -4,7 +4,7 @@ public class DailySpecialBuilder implements SpecialBuilder {
     Inventory inventory;
 
     public DailySpecialBuilder(Inventory inventory) {
-        this.special = new Special();
+        this.special = new Special("Daily");
         this.inventory = inventory;
     }
 
@@ -15,7 +15,7 @@ public class DailySpecialBuilder implements SpecialBuilder {
 
     public void buildVegetable() {
         // Get the vegetable inventory with least quantity
-        special.setVegetable(inventory.getItem("Vegetable"));
+        special.setVegetable(inventory.getItem("Asparagus"));
     }
 
     public void buildSide() {

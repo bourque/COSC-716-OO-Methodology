@@ -4,7 +4,7 @@ public class WeeklySpecialBuilder implements SpecialBuilder {
     Inventory inventory;
 
     public WeeklySpecialBuilder(Inventory inventory) {
-        this.special = new Special();
+        this.special = new Special("Weekly");
         this.inventory = inventory;
     }
 

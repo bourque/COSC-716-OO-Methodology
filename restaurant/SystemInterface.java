@@ -21,17 +21,26 @@ public class SystemInterface {
         return sb.toString();
     }
 
-    public static String displaySpecials() {
+    public static String displaySpecials() throws UnimplementedSpecialException {
 
         // Get the specials
         Specials specials = invoker.displaySpecials();
 
         // Convert to a string
+        StringBuilder sb = new StringBuilder();
         for (Special special:specials.specials) {
-            System.out.println(special.main + ", " + special.vegetable + ", " + special.side);
+            if (special.type.equals("Daily")) {
+                sb.append("\nToday's specials:\n");
+            } else if (special.type.equals("Weekly")) {
+                sb.append("\nThis week's specials:\n");
+            } else {
+                throw new UnimplementedSpecialException(special.type);
+            }
+
+            sb.append("\t" + special.main.name + " with " + special.vegetable.name + " and " + special.side.name);
         }
 
-        return "It worked";
+        return sb.toString();
 
     }
 
@@ -78,5 +87,12 @@ public class SystemInterface {
         }
 
         return orderConfirmation;
+    }
+}
+
+class UnimplementedSpecialException extends Exception {
+
+    public UnimplementedSpecialException(String specialType) {
+        System.out.println("Special Type " + specialType + " is unimplemeneted");
     }
 }
