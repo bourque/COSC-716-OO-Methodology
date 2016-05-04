@@ -15,5 +15,7 @@ public class Director {
         this.sb.buildMain();
         this.sb.buildVegetable();
         this.sb.buildSide();
+        this.sb.buildName();
+        this.sb.buildPrice();
     }
 }

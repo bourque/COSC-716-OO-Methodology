@@ -61,6 +61,14 @@ public class WeeklySpecialBuilder implements SpecialBuilder {
         special.setSide(foundItem);
     }
 
+    public void buildName() {
+        special.setName();
+    }
+
+    public void buildPrice() {
+        special.setPrice();
+    }
+
     public Special getSpecial() {
         return special;
     }

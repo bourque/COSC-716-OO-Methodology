@@ -36,8 +36,8 @@ public class SystemInterface {
             } else {
                 throw new UnimplementedSpecialException(special.type);
             }
-            System.out.println(special.type);
-            sb.append("\t" + special.main.name + " with " + special.vegetable.name + " and " + special.side.name);
+
+            sb.append("\t" + special.name + ": " + special.price);
         }
 
         return sb.toString();
@@ -81,6 +81,16 @@ public class SystemInterface {
         for (MenuItem item:menu.menu) {
             if (item.name.toLowerCase().equals(order.toLowerCase())) {
                 orderedItem = new OrderItem(item.name, item.price);
+                orderConfirmation = invoker.submitOrder(orderedItem);
+                break;
+            }
+        }
+
+        // submit the order if it is a special
+        Specials specials = invoker.displaySpecials();
+        for (Special special:specials.specials) {
+            if (special.name.toLowerCase().equals(order.toLowerCase())) {
+                orderedItem = new OrderItem(special.name, special.price);
                 orderConfirmation = invoker.submitOrder(orderedItem);
                 break;
             }

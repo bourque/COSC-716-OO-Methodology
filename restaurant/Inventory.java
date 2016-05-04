@@ -35,6 +35,7 @@ public class Inventory {
                 String type = line[1];
                 int qty = Integer.parseInt(line[2]);
                 String dateString = line[3];
+                float price = Float.parseFloat(line[4]);
 
                 // Convert date to Date object
                 String[] dateSplit = dateString.split("-");
@@ -45,7 +46,7 @@ public class Inventory {
                 Date expiration = cal.getTime();
 
                 // Add item to inventory
-                addInventory(new InventoryItem(name, type, qty, expiration));
+                addInventory(new InventoryItem(name, type, qty, expiration, price));
             }
 
         } catch(FileNotFoundException e) {
