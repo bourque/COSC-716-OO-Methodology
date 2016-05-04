@@ -1,5 +1,3 @@
-// Determines which command class accomplishes task and gives reference of aggregator
-
 public class Invoker {
 
     Aggregator agg;

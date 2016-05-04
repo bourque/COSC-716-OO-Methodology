@@ -36,7 +36,7 @@ public class SystemInterface {
             } else {
                 throw new UnimplementedSpecialException(special.type);
             }
-
+            System.out.println(special.type);
             sb.append("\t" + special.main.name + " with " + special.vegetable.name + " and " + special.side.name);
         }
 

@@ -1,0 +1,14 @@
+Roasted Chicken,Main,25,2016-06-11
+New York Strip,Main,20,2016-06-01
+Salmon,Main,15,2016-07-31
+Pot Roast,Main,44,2016-06-20
+Lobster,Main,60,2016-08-04
+Asparagus,Vegetable,100,2016-06-15
+Salad,Vegetable,150,2016-06-15
+Cauliflower,Vegetable,35,2016-06-17
+Carrots,Vegetable,60,2016-06-12
+Corn,Vegetable,95,2016-06-28
+Biscuit,Side,90,2016-06-29
+Potatoes,Side,12,2016-07-04
+White Rice,Side,28,2017-01-01
+Brown Rice,Side,31,2017-01-01

@@ -1,7 +1,7 @@
 public class MenuItem {
 
     public String name;
-    public double price;
+    public float price;
     public InventoryItem main;
     public InventoryItem vegetable;
     public InventoryItem side;
@@ -11,7 +11,7 @@ public class MenuItem {
      * @param name - the name of the menu item
      * @param price - the price of the menu item
      */
-    public MenuItem(String name, double price, InventoryItem main, InventoryItem vegetable, InventoryItem side){
+    public MenuItem(String name, float price, InventoryItem main, InventoryItem vegetable, InventoryItem side){
 
         this.name = name;
         this.price = price;
@@ -24,7 +24,7 @@ public class MenuItem {
      * Return the menu item's price
      * @return price - the price of the menu item
      */
-    public double getPrice(){
+    public float getPrice(){
         return this.price;
     }
 

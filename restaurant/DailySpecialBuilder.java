@@ -9,18 +9,45 @@ public class DailySpecialBuilder implements SpecialBuilder {
     }
 
     public void buildMain() {
+
         // Get the main inventory item with least quantity
-        special.setMain(inventory.getItem("Chicken"));
+        int quantity = Integer.MAX_VALUE;
+        InventoryItem foundItem = null;
+        for (InventoryItem item:inventory.inventory){
+            if (item.type.equals("Main") && item.quantity < quantity) {
+                quantity = item.quantity;
+                foundItem = item;
+            }
+        }
+        special.setMain(foundItem);
     }
 
     public void buildVegetable() {
+
         // Get the vegetable inventory with least quantity
-        special.setVegetable(inventory.getItem("Asparagus"));
+        int quantity = Integer.MAX_VALUE;
+        InventoryItem foundItem = null;
+        for (InventoryItem item:inventory.inventory){
+            if (item.type.equals("Vegetable") && item.quantity < quantity) {
+                quantity = item.quantity;
+                foundItem = item;
+            }
+        }
+        special.setVegetable(foundItem);
     }
 
     public void buildSide() {
+
         // Get the side inventory with least quantity
-        special.setSide(inventory.getItem("Biscuit"));
+        int quantity = Integer.MAX_VALUE;
+        InventoryItem foundItem = null;
+        for (InventoryItem item:inventory.inventory){
+            if (item.type.equals("Side") && item.quantity < quantity) {
+                quantity = item.quantity;
+                foundItem = item;
+            }
+        }
+        special.setSide(foundItem);
     }
 
     public Special getSpecial() {

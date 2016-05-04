@@ -1,7 +1,10 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Inventory {
 
@@ -20,25 +23,43 @@ public class Inventory {
 
         Calendar cal = Calendar.getInstance();
 
-        cal.set(2016, Calendar.MAY, 10);
-        Date chickenExpiration = cal.getTime();
-        addInventory(new InventoryItem("Chicken", "Main", 25, chickenExpiration));
+        // Read in the file
+        try {
+            Scanner scanner = new Scanner(new File("inventory.txt"));
+            while(scanner.hasNext()) {
 
-        cal.set(2016, Calendar.MAY, 24);
-        Date asparagusExpiration = cal.getTime();
-        addInventory(new InventoryItem("Asparagus", "Vegetable", 30, asparagusExpiration));
+                // Parse the line
+                String next = scanner.nextLine();
+                String[] line = next.split(",");
+                String name = line[0];
+                String type = line[1];
+                int qty = Integer.parseInt(line[2]);
+                String dateString = line[3];
 
-        cal.set(2016, Calendar.AUGUST, 29);
-        Date biscuitExpiration = cal.getTime();
-        addInventory(new InventoryItem("Biscuit", "Side", 55, biscuitExpiration));
+                // Convert date to Date object
+                String[] dateSplit = dateString.split("-");
+                int year = Integer.parseInt(dateSplit[0]);
+                int month = Integer.parseInt(dateSplit[1]);
+                int day = Integer.parseInt(dateSplit[2]);
+                cal.set(year, month, day);
+                Date expiration = cal.getTime();
+
+                // Add item to inventory
+                addInventory(new InventoryItem(name, type, qty, expiration));
+            }
+
+        } catch(FileNotFoundException e) {
+            System.out.println("Error " + e.toString());
+            System.exit(1);
+        }
     }
 
     public InventoryItem getItem(String name) {
 
         InventoryItem foundItem = null;
         for (InventoryItem item:inventory) {
-            foundItem = item;
-            if (foundItem.name.equals(name)) {
+            if (item.name.equals(name)) {
+                foundItem = item;
                 break;
             }
         }
