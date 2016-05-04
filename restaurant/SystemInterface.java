@@ -100,7 +100,7 @@ public class SystemInterface {
     }
 }
 
-class UnimplementedSpecialException extends Exception {
+class UnimplementedSpecialException extends RuntimeException {
 
     public UnimplementedSpecialException(String specialType) {
         System.out.println("Special Type " + specialType + " is unimplemeneted");

@@ -22,11 +22,7 @@ public class UserInterface {
                         System.out.println(SystemInterface.displayMenu());
                         break;
                     case "2":
-                        try {
-                            System.out.println(SystemInterface.displaySpecials());
-                        } catch (UnimplementedSpecialException e) {
-                            System.out.println(e);
-                        }
+                        System.out.println(SystemInterface.displaySpecials());
                         break;
                     case "3":
                         System.out.println(SystemInterface.submitOrder());
