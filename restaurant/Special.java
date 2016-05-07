@@ -29,5 +29,6 @@ public class Special {
 
     public void setPrice() {
         this.price = this.main.price + this.vegetable.price + this.side.price;
+        this.price = this.price - (this.price * 0.10f);
     }
 }
