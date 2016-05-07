@@ -1,10 +1,10 @@
 public class InventoryObserver implements Observer {
 
-    public Observable observable;
+    private Observable inventory;
 
     public InventoryObserver(Observable inventory)
     {
-        this.observable = inventory;
+        this.inventory = inventory;
         inventory.register(this);
     }
 

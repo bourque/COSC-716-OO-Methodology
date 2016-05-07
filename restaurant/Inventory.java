@@ -9,16 +9,12 @@ import java.util.Scanner;
 public class Inventory implements Observable {
 
     public ArrayList<InventoryItem> inventory;
-    public ArrayList<Observer> observers;
+    private ArrayList<Observer> observers;
 
     public Inventory() {
         inventory = new ArrayList<InventoryItem>();
         observers = new ArrayList<Observer>();
         buildInventory();
-    }
-
-    public void addInventory(InventoryItem item) {
-        inventory.add(item);
     }
 
     public void removeInventory(InventoryItem item) {
@@ -62,7 +58,7 @@ public class Inventory implements Observable {
                 Date expiration = cal.getTime();
 
                 // Add item to inventory
-                addInventory(new InventoryItem(name, type, qty, expiration, price));
+                inventory.add(new InventoryItem(name, type, qty, expiration, price));
             }
 
         } catch(FileNotFoundException e) {
