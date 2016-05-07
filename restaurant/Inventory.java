@@ -6,12 +6,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Inventory {
+public class Inventory implements Observable {
 
     public ArrayList<InventoryItem> inventory;
+    public ArrayList<Observer> observers;
 
     public Inventory() {
         inventory = new ArrayList<InventoryItem>();
+        observers = new ArrayList<Observer>();
         buildInventory();
     }
 
@@ -21,16 +23,16 @@ public class Inventory {
 
     public void removeInventory(InventoryItem item) {
 
-        // remove from inventory
-        System.out.println(item.name);
+        // remove from inventory and notify observer if necessary
         for (InventoryItem i:inventory) {
             if (item.name.equals(i.name)) {
                 i.quantity -= 1;
+                if (i.quantity < 10) {
+                    warn();
+                }
                 break;
             }
         }
-
-        // notify observers
     }
 
     private void buildInventory() {
@@ -80,5 +82,20 @@ public class Inventory {
         }
 
         return foundItem;
+    }
+
+    public void register(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void unregister(Observer observer) {
+        // remove observer
+    }
+
+    public void warn() {
+
+        for(Observer observer:observers) {
+            observer.warn();
+        }
     }
 }

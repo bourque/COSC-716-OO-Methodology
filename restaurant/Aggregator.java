@@ -4,11 +4,13 @@ public class Aggregator {
     Orders orders;
     Tab tab;
     Inventory inventory;
+    InventoryObserver inventoryObserver;
 
     public Aggregator() {
         orders = new Orders();
         inventory = new Inventory();
         menu = new Menu(inventory);
+        inventoryObserver = new InventoryObserver(inventory);
     }
 
     public Inventory getInventory() {
