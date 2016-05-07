@@ -10,7 +10,7 @@ public class Menu {
         buildMenu();
     }
 
-    private void buildMenu(){
+    private void buildMenu() {
 
         MenuItem item0 = new MenuItem("Roasted Chicken Dinner", 25.15f, inventory.getItem("Roasted Chicken"), inventory.getItem("Asparagus"), inventory.getItem("Biscuit"));
         MenuItem item1 = new MenuItem("New York Strip Dinner", 47.25f, inventory.getItem("New York Strip"), inventory.getItem("Salad"), inventory.getItem("Potatoes"));
@@ -23,5 +23,18 @@ public class Menu {
         menu.add(item2);
         menu.add(item3);
         menu.add(item4);
+    }
+
+    public MenuItem getItem(String name) {
+
+        MenuItem foundItem = null;
+        for (MenuItem item:menu) {
+            if (item.name.equals(name)) {
+                foundItem = item;
+                break;
+            }
+        }
+
+        return foundItem;
     }
 }

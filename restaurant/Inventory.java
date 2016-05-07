@@ -19,6 +19,20 @@ public class Inventory {
         inventory.add(item);
     }
 
+    public void removeInventory(InventoryItem item) {
+
+        // remove from inventory
+        System.out.println(item.name);
+        for (InventoryItem i:inventory) {
+            if (item.name.equals(i.name)) {
+                i.quantity -= 1;
+                break;
+            }
+        }
+
+        // notify observers
+    }
+
     private void buildInventory() {
 
         Calendar cal = Calendar.getInstance();
