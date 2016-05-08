@@ -15,14 +15,6 @@ public class Special {
         this.main = main;
     }
 
-    public void setVegetable(InventoryItem vegetable) {
-        this.vegetable = vegetable;
-    }
-
-    public void setSide(InventoryItem side) {
-        this.side = side;
-    }
-
     public void setName() {
         this.name = this.main.name + " with " + this.vegetable.name + " and " + this.side.name;
     }
@@ -30,5 +22,13 @@ public class Special {
     public void setPrice() {
         this.price = this.main.price + this.vegetable.price + this.side.price;
         this.price = this.price - (this.price * 0.10f);
+    }
+
+    public void setSide(InventoryItem side) {
+        this.side = side;
+    }
+
+    public void setVegetable(InventoryItem vegetable) {
+        this.vegetable = vegetable;
     }
 }

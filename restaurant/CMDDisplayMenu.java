@@ -1,6 +1,6 @@
 public class CMDDisplayMenu implements Command {
 
-    Aggregator agg;
+    private Aggregator agg;
 
     public CMDDisplayMenu(Aggregator agg) {
         this.agg = agg;

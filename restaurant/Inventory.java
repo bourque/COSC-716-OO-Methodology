@@ -17,20 +17,6 @@ public class Inventory implements Observable {
         buildInventory();
     }
 
-    public void removeInventory(InventoryItem item) {
-
-        // remove from inventory and notify observer if necessary
-        for (InventoryItem i:inventory) {
-            if (item.name.equals(i.name)) {
-                i.quantity -= 1;
-                if (i.quantity < 10) {
-                    warn();
-                }
-                break;
-            }
-        }
-    }
-
     private void buildInventory() {
 
         Calendar cal = Calendar.getInstance();
@@ -84,6 +70,20 @@ public class Inventory implements Observable {
         observers.add(observer);
     }
 
+    public void removeInventory(InventoryItem item) {
+
+        // remove from inventory and notify observer if necessary
+        for (InventoryItem i:inventory) {
+            if (item.name.equals(i.name)) {
+                i.quantity -= 1;
+                if (i.quantity < 10) {
+                    warn();
+                }
+                break;
+            }
+        }
+    }
+
     public void unregister(Observer observer) {
         // remove observer
     }
@@ -91,7 +91,7 @@ public class Inventory implements Observable {
     public void warn() {
 
         for(Observer observer:observers) {
-            observer.warn();
+            observer.update();
         }
     }
 }

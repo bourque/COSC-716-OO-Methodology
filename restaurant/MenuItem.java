@@ -19,20 +19,4 @@ public class MenuItem {
         this.vegetable = vegetable;
         this.side = side;
     }
-
-    /**
-     * Return the menu item's price
-     * @return price - the price of the menu item
-     */
-    public float getPrice(){
-        return this.price;
-    }
-
-    /**
-     * Return the menu item's name
-     * @return name - the name of the menu item
-     */
-    public String getName(){
-        return this.name;
-    }
 }

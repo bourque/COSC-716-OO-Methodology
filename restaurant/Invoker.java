@@ -1,6 +1,6 @@
 public class Invoker {
 
-    Aggregator agg;
+    private Aggregator agg;
 
     public Invoker() {
         this.agg = new Aggregator();

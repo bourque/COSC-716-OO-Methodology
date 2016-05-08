@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Menu {
 
     public ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
-    public Inventory inventory;
+    private Inventory inventory;
 
     public Menu(Inventory inventory) {
         this.inventory = inventory;

@@ -1,7 +1,7 @@
 public class CMDSubmitOrder implements Command {
 
-    Aggregator agg;
-    OrderItem orderedItem;
+    private Aggregator agg;
+    private OrderItem orderedItem;
 
     public CMDSubmitOrder(Aggregator agg, OrderItem orderedItem) {
         this.agg = agg;

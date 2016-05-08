@@ -8,7 +8,7 @@ public class InventoryObserver implements Observer {
         inventory.register(this);
     }
 
-    public void warn() {
+    public void update() {
 
         // Warn the system of low inventory
         System.out.println("\nLow inventory warning: ");

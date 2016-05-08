@@ -1,7 +1,7 @@
 public class DailySpecialBuilder implements SpecialBuilder {
 
-    Special special;
-    Inventory inventory;
+    private Special special;
+    private Inventory inventory;
 
     public DailySpecialBuilder(Inventory inventory) {
         this.special = new Special("Daily");

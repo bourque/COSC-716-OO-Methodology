@@ -1,6 +1,6 @@
 public class CMDDisplaySpecials implements Command {
 
-    Aggregator agg;
+    private Aggregator agg;
 
     public CMDDisplaySpecials(Aggregator agg) {
         this.agg = agg;

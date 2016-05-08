@@ -1,6 +1,6 @@
 public class CMDDisplayTab implements Command {
 
-    Aggregator agg;
+    private Aggregator agg;
 
     public CMDDisplayTab(Aggregator agg) {
         this.agg = agg;

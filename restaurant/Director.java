@@ -6,10 +6,6 @@ public class Director {
         this.sb = sb;
     }
 
-    public Special getSpecial() {
-        return this.sb.getSpecial();
-    }
-
     public void build() {
 
         this.sb.buildMain();
@@ -17,5 +13,9 @@ public class Director {
         this.sb.buildSide();
         this.sb.buildName();
         this.sb.buildPrice();
+    }
+
+    public Special getSpecial() {
+        return this.sb.getSpecial();
     }
 }

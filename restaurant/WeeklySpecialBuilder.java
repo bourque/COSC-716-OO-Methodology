@@ -3,9 +3,9 @@ import java.util.Date;
 
 public class WeeklySpecialBuilder implements SpecialBuilder {
 
-    Special special;
-    Inventory inventory;
-    Calendar cal;
+    private Special special;
+    private Inventory inventory;
+    private Calendar cal;
 
     public WeeklySpecialBuilder(Inventory inventory) {
         this.special = new Special("Weekly");

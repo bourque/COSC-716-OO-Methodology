@@ -1,10 +1,10 @@
 public class Aggregator {
 
-    Menu menu;
-    Orders orders;
-    Tab tab;
-    Inventory inventory;
-    InventoryObserver inventoryObserver;
+    public Menu menu;
+    public Orders orders;
+    public Tab tab;
+    public Inventory inventory;
+    public InventoryObserver inventoryObserver;
 
     public Aggregator() {
         orders = new Orders();

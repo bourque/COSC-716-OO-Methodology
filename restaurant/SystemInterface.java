@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class SystemInterface {
 
-    public static Invoker invoker = new Invoker();
+    private static Invoker invoker = new Invoker();
 
     public static String displayMenu() {
 
