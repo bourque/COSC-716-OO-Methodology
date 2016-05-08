@@ -15,4 +15,8 @@ public class InventoryItem {
         this.expiration = expiration;
         this.price = price;
     }
+
+    public void addQuantity(int qty) {
+        this.quantity += qty;
+    }
 }
