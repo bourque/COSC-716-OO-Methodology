@@ -16,6 +16,7 @@ public class SystemInterface {
         sb.append("\nMenu:\n");
         for (MenuItem item:menu.menu) {
             sb.append("\t" + item.name + ": " + item.price + "\n");
+            sb.append("\t\t" + item.main.name + " with " + item.vegetable.name + " and " + item.side.name + "\n");
         }
 
         return sb.toString();
@@ -67,7 +68,7 @@ public class SystemInterface {
         String orderConfirmation = "\nItem not on the menu. Please try again.";
 
         // Get ordered item from user
-        System.out.println("\nPlease enter item you would like to order:");
+        System.out.println("\nPlease enter the name of the item you would like to order:");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             order = br.readLine();

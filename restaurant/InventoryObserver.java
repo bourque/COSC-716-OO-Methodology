@@ -17,7 +17,7 @@ public class InventoryObserver implements Observer {
         for (InventoryItem item:((Inventory) inventory).inventory) {
             if (item.quantity < 10) {
                 System.out.println("\t" + item.name + ": " + item.quantity + " remaining");
-                System.out.println("\tAdding more" + item.name);
+                System.out.println("\tAdding more " + item.name + "\n");
                 item.addQuantity(10);
             }
         }
