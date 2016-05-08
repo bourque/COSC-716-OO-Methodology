@@ -28,6 +28,9 @@ public class CMDDisplaySpecials implements Command {
         specials.addSpecial(todaySpecial);
         specials.addSpecial(weekSpecial);
 
+        // Update the aggregator
+        agg.specials = specials;
+
         return specials;
     }
 }

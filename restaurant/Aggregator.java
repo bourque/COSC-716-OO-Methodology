@@ -3,6 +3,7 @@ public class Aggregator {
     public Menu menu;
     public Orders orders;
     public Tab tab;
+    public Specials specials;
     public Inventory inventory;
     public InventoryObserver inventoryObserver;
 
@@ -10,6 +11,7 @@ public class Aggregator {
         orders = new Orders();
         inventory = new Inventory();
         menu = new Menu(inventory);
+        specials = new Specials();
         inventoryObserver = new InventoryObserver(inventory);
     }
 

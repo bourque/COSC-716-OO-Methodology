@@ -15,12 +15,18 @@ public class CMDSubmitOrder implements Command {
         orders.addOrder(orderedItem);
 
         // Remove necessary inventory
-        MenuItem item = agg.menu.getItem(orderedItem.name);
-        agg.inventory.removeInventory(item.main);
-        agg.inventory.removeInventory(item.vegetable);
-        agg.inventory.removeInventory(item.side);
+        try {
+            MenuItem item = agg.menu.getItem(orderedItem.name);
+            agg.inventory.removeInventory(item.main);
+            agg.inventory.removeInventory(item.vegetable);
+            agg.inventory.removeInventory(item.side);
 
-        // Implement to remove specials from inventory
+        } catch (NullPointerException e) {
+            Special special = agg.specials.getSpecial(orderedItem.name);
+            agg.inventory.removeInventory(special.main);
+            agg.inventory.removeInventory(special.vegetable);
+            agg.inventory.removeInventory(special.side);
+        }
 
         return "Order confirmed: " + orderedItem.name + ": " + orderedItem.price;
     }
