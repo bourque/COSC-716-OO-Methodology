@@ -25,5 +25,5 @@ public class Driver {
 
 // Still to implement:
 // Final constants?
-// Low inventory observer instead of just inventory observer
 // more inventory observers?
+// realistic prices

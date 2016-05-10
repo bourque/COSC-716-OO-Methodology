@@ -4,7 +4,7 @@
  * inventory item drops below 10, a warning is sent to the system and
  * more inventory is added.
  */
-public class InventoryObserver implements Observer {
+public class LowInventoryObserver implements Observer {
 
     private Observable inventory;
 
@@ -12,7 +12,7 @@ public class InventoryObserver implements Observer {
      * Constructor method.  Links the inventory and registers the
      * observer with the Inventory object.
      */
-    public InventoryObserver(Observable inventory)
+    public LowInventoryObserver(Observable inventory)
     {
         this.inventory = inventory;
         inventory.register(this);

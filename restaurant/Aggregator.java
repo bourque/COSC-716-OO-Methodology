@@ -9,7 +9,7 @@ public class Aggregator {
     public Tab tab;
     public Specials specials;
     public Inventory inventory;
-    public InventoryObserver inventoryObserver;
+    public LowInventoryObserver lowInventoryObserver;
 
     /**
      * Constructor method.  Creates the system data.
@@ -19,7 +19,7 @@ public class Aggregator {
         inventory = new Inventory();
         menu = new Menu(inventory);
         specials = new Specials();
-        inventoryObserver = new InventoryObserver(inventory);
+        lowInventoryObserver = new LowInventoryObserver(inventory);
     }
 
     /**
