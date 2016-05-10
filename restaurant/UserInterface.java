@@ -2,8 +2,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
+/**
+ * The user interface.  Allows user to choose from several options in
+ * the restaurant system.
+ */
 public class UserInterface {
 
+    /**
+     * Run the user interface.
+     */
     public void runInterface() {
 
         // Print out options for the user
@@ -45,6 +52,10 @@ public class UserInterface {
         }
     }
 
+
+    /**
+     * Display the list of options available to the user.
+     */
     private void displayOptions() {
 
         System.out.println("\nMain Menu:\n");

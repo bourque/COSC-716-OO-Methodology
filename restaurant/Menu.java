@@ -1,15 +1,26 @@
 import java.util.ArrayList;
 
+/**
+ * Menu object that contains the restaurant menu, which is comprised
+ * of a name, price, and three inventory items (main, vegetable, side).
+ */
 public class Menu {
 
     public ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
     private Inventory inventory;
 
+    /**
+     * Constructor method.  Links the inventory and builds the menu.
+     * @param Inventory - The inventory.
+     */
     public Menu(Inventory inventory) {
         this.inventory = inventory;
         buildMenu();
     }
 
+    /**
+     * Build the menu.
+     */
     private void buildMenu() {
 
         MenuItem item0 = new MenuItem("Roasted Chicken Dinner", 25.15f, inventory.getItem("Roasted Chicken"), inventory.getItem("Asparagus"), inventory.getItem("Biscuit"));
@@ -25,6 +36,11 @@ public class Menu {
         menu.add(item4);
     }
 
+    /**
+     * Return an item from the menu that matches the given name
+     * @param String - The name of the menu item.
+     * @return MenuItem - The menu item that matches the given name.
+     */
     public MenuItem getItem(String name) {
 
         MenuItem foundItem = null;
@@ -34,7 +50,6 @@ public class Menu {
                 break;
             }
         }
-
         return foundItem;
     }
 }

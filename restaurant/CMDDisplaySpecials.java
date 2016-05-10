@@ -1,11 +1,22 @@
+/**
+ * Command object for displaying the specials.
+ */
 public class CMDDisplaySpecials implements Command {
 
     private Aggregator agg;
 
+    /**
+     * Constructor method.  Links the aggregator.
+     * @param Aggregator - The aggregator.
+     */
     public CMDDisplaySpecials(Aggregator agg) {
         this.agg = agg;
     }
 
+    /**
+     * Execute the displaySpecials command.
+     * @return Specials - The specials.
+     */
     public Specials execute() {
 
         // Get inventory

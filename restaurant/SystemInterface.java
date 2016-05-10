@@ -2,10 +2,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
+/**
+ * The system interface. Runs the user supplied commands and returns
+ * string output for the user to view.
+ */
 public class SystemInterface {
 
     private static Invoker invoker = new Invoker();
 
+    /**
+     * Display the restarant menu.
+     * @return String - The menu.
+     */
     public static String displayMenu() {
 
         // Get the menu
@@ -22,6 +30,11 @@ public class SystemInterface {
         return sb.toString();
     }
 
+
+    /**
+     * Display the daily and weekly special.
+     * @return String - The specials.
+     */
     public static String displaySpecials() throws UnimplementedSpecialException {
 
         // Get the specials
@@ -45,6 +58,11 @@ public class SystemInterface {
 
     }
 
+
+    /**
+     * Display the tab.
+     * @return String - The tab.
+     */
     public static String displayTab() {
 
         // Get the tab
@@ -61,6 +79,11 @@ public class SystemInterface {
         return sb.toString();
     }
 
+
+    /**
+     * Submit an order.
+     * @return String - The order confirmation.
+     */
     public static String submitOrder() {
 
         OrderItem orderedItem = null;
@@ -101,6 +124,11 @@ public class SystemInterface {
     }
 }
 
+
+/**
+ * Custom exception for unimplemented special types (e.g. monthly
+ * special)
+ */
 class UnimplementedSpecialException extends RuntimeException {
 
     public UnimplementedSpecialException(String specialType) {

@@ -1,13 +1,28 @@
+/**
+ * An observer object that observes the Inventory object for low
+ * inventory of a particular item(s).  If the quantity of an
+ * inventory item drops below 10, a warning is sent to the system and
+ * more inventory is added.
+ */
 public class InventoryObserver implements Observer {
 
     private Observable inventory;
 
+    /**
+     * Constructor method.  Links the inventory and registers the
+     * observer with the Inventory object.
+     */
     public InventoryObserver(Observable inventory)
     {
         this.inventory = inventory;
         inventory.register(this);
     }
 
+    /**
+     * Warns the system of low inventory and determines which
+     * inventory items require an increase in quantity.  Such items
+     * are increased by 10.
+     */
     public void update() {
 
         // Warn the system of low inventory

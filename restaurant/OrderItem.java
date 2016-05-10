@@ -1,3 +1,7 @@
+/**
+ * Object that represents an ordered item, which is comprised of a name
+ * and price.
+ */
 public class OrderItem {
 
     public String name;
