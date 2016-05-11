@@ -6,10 +6,9 @@
 
 /**
  * Driver class.  The user should execute this class to run the
- *  program.
+ * program.
  */
 public class Driver {
-
 
     /**
      * The main method
@@ -22,8 +21,3 @@ public class Driver {
         ui.runInterface();
     }
 }
-
-// Still to implement:
-// Final constants?
-// more inventory observers?
-// realistic prices
