@@ -91,7 +91,7 @@ public class SystemInterface {
         String orderConfirmation = "\nItem not on the menu. Please try again.";
 
         // Get ordered item from user
-        System.out.println("\nPlease enter the name of the item you would like to order:");
+        System.out.println("\nPlease enter the full name of the item you would like to order:");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             order = br.readLine();
